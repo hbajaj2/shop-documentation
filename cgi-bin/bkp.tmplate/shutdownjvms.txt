@@ -1,0 +1,5 @@
+&wcs_ev& Shut Down JVMS 
+
+Stop all auth and live clusters  from DMGR console except AdminCL
+
+

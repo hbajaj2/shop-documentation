@@ -1,0 +1,16 @@
+&ihs_ev& Sync replica & switch Hall to Replica - &ENV&
+NOTE: This step should only be performed on one author and one live webserver
+
+UNIX User - root
+
+Execute below steps in a way that replica doc root(htdocs-Replica) to primary docroot(htdocs).
+
+	sh /apps/IBM/ihs70/conf/syncReplica.sh 
+
+	$cd /apps/IBM/ihs70/conf
+	
+On Author Webservers:
+	$./SwitchHall2Replica-Auth.sh &hall&
+
+On Live Webservers:
+	$./SwitchHall2Replica.sh &hall&

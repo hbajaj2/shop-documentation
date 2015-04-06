@@ -1,0 +1,15 @@
+&wcs_ev& WAS Profile Backup - Author and Live 
+UNIX User - wasadmin
+Servers: Author and Live DMGR
+
+DMGR Backup:
+	$cd /apps/IBM/Websphere/ws70/profiles/DMgr/bin
+	$./backupConfig.sh dmgr_profile_ddmmyyyy.zip -nostop 
+
+Profile backup (Live):
+	$cd /apps/IBM/Websphere/ws70/profiles/guest/bin
+	$./backupConfig.sh live_profile_ddmmyyyy.zip -nostop 
+
+Profile backup (Author):
+	$cd /apps/IBM/Websphere/ws70/profiles/author/bin
+        $./backupConfig.sh author_profile_ddmmyyyy.zip -nostop

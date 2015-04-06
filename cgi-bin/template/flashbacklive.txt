@@ -1,0 +1,6 @@
+&wcs_ev& Perform Flashback on WCSRT Live DB - &ENV&
+
+Shutdown all WAS live clusters (both halls) & hold all control m jobs before starting with flashback exercise.
+
+AT&T DBA Activity involves rolling back database to restorepoint created on WCSRT database.
+Please confirm once the flashback exercise is complete.

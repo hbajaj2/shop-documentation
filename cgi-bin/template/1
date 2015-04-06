@@ -1,0 +1,32 @@
+&wcs_ev& Applying fix packs to Commerce Server (instance level) - &ENV&
+
+UNIX User - root
+
+Install Instructions
+
+Copy the response file from BAS Location "fixpack" as mentioned in point 1 to server and change the instance name as per instance.
+
+Note:  Edit response file with the values as give. Make sure that Binaries are copied to updi maintenance location and the mentioned path does exist. 
+
+Go to the directory of the update installer installation path& issue the following command
+
+	$cd <WCS Update Installer Install Directory>
+	$./update.sh -silent -options <<ResponseFileDirectory>>/wcs-fixpack9-install-instance-response.txt
+
+Installation Verification
+
+Check the logs at <WCS Install Directory>/logs/update/<FIxPackName>.install/updateLog.txt for the keyword : INSTCONFSUCCESS
+
+	Process, com.ibm.ws.install.ni.ismp.actions.SettleNIFRegistryAction, msg1, Current install/uninstall process is successful. Process type is: install
+	Process, com.ibm.ws.install.ni.ismp.actions.SetExitCodeAction, msg1, CWUPI0000I: EXITCODE=0
+	Process, com.ibm.ws.install.ni.ismp.actions.ISMPLogSuccessMessageAction, msg1, INSTCONFSUCCESS
+
+Check the version of WAS using following script.
+
+	$<WCS Install Directory>/bin/versionInfo.sh
+
+Output should be as follows:
+
+	Name                     IBM WebSphere Commerce
+	Version                  <FixPackVersion>
+	ID                       wc.server.be

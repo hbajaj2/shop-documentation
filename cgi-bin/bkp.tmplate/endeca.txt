@@ -1,0 +1,14 @@
+&wcs_ev& Endeca Deployment - &ENV&
+UNIX User - endeca
+
+Code packet location,Extract the code packet and Execute permission to the script
+
+$/export/ecom/deploy/PLATFORM/endeca-&BRANCH&/endeca-&BRANCH&.tar.gz
+$cd /export/ecom/deploy/PLATFORM/endeca-&BRANCH&/
+$tar -zxf endeca-&BRANCH&.tar.gz 
+$chmod u+x ./deployEndecaPackage.sh
+
+Please follow below steps to run Endeca deployment:
+
+$./deployEndecaPackage.sh &BRANCH& &ENV& /home/endeca 2>&1 | tee /mslogs/deploy-logs/endeca-&BRANCH&/endeca_deploy_`date +%Y%m%d%H%M%S`.log
+

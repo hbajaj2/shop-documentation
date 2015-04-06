@@ -1,0 +1,37 @@
+Appendix 1 : Hall 8 Server List
+
+CQ Publish Instance 		-    s220823vaps2021
+CQ Author Instance  		-    s220823vaps5001
+Endeca Workbench, ITL Server 	-    s220823vaps5021
+Endeca Author Mdex servers 	-    s220823vaps5041,s220823vaps5042
+Endeca Live Mdex servers 	-    s220823vaps2196,s220823vaps2197,s220823vaps2198,
+				     s220823vaps2199,s220823vaps2200,s220823vaps2201,
+				     s220823vaps2202,s220823vaps2203
+Webservers Guest   		-    s220823vwbs1031,s220823vwbs1032,s220823vwbs1033,
+				     s220823vwbs1034,s220823vwbs1035,s220823vwbs1036,
+				     s220823vwbs1037,s220823vwbs1038,s220823vwbs1039,
+				     s220823vwbs1040,s220823vwbs1041,s220823vwbs1042
+Webservers Assisted 		-    s220823vwbs1001,s220823vwbs1002,s220823vwbs1003
+Webservers API 			-    s220823vwbs1016,s220823vwbs1017,s220823vwbs1018
+Webservers Authoring 		-    s220823vwbs5001,s220823vwbs5002
+DMGR Authoring 			-    s220823vaps5051
+Author Batch servers 		-    s220823vaps5091,s220823vaps5092
+Author AUTHCL servers 		-    s220823vaps5081,s220823vaps5082
+DMGR Live 			-    s220823vaps2281
+Live Batch Servers 		-    s220823vaps2391,s220823vaps2392
+Live Assisted Servers 		-    s220823vaps2336,s220823vaps2337,s220823vaps2338,
+				     s220823vaps2339,s220823vaps2340,s220823vaps2341
+Live API Servers 		-    s220823vaps2366,s220823vaps2367,s220823vaps2368,
+				     s220823vaps2369,s220823vaps2370
+Live-GuestCL servers 		-    s220823vaps2503,s220823vaps2504,s220823vaps2505,
+				     s220823vaps2506,s220823vaps2507,s220823vaps2508,
+				     s220823vaps2509,s220823vaps2510,s220823vaps2511,
+				     s220823vaps2512,s220823vaps2513,s220823vaps2514,
+				     s220823vaps2515,s220823vaps2516,s220823vaps2517,
+				     s220823vaps2518,s220823vaps2519,s220823vaps2520,
+				     s220823vaps2521,s220823vaps2522,s220823vaps2523
+WXS Servers			-    s220823vaps2311,s220823vaps2312,s220823vaps2313,
+				     s220823vaps2314
+Author Admin Nodes for IHS	-    s220823vaps5051,s220823vaps5091
+Live Admin Nodes for IHS	-    s220823vaps2281,s220823vaps2391
+

@@ -1,0 +1,6 @@
+&wcs_ev& propgateindex - &ENV&
+UNIX User - endeca
+
+Code packet location,Extract the code packet and Execute permission to the
+script
+

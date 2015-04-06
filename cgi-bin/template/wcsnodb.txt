@@ -1,0 +1,11 @@
+&wcs_ev& WCS Application only Deployment - &ENV&
+UNIX User - wasadmin
+
+Code packet location,Extract the code packet and Execute permission to the script
+
+	$/export/ecom/deploy/PLATFORM/wcs-&BRANCH&/wcs-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/wcs-&BRANCH&/
+	$tar -zxf wcs-&BRANCH&.tar.gz 
+	$chmod u+x ./deployWCSPackage.sh
+	./deployWCSPackage.sh &BRANCH& &ENV&  runACP=false runACUG=false runDBCR=false runMassLoad=false extPropsPath=/home/wasadmin 2>&1 | tee /mslogs/deploy-logs/wcs-&BRANCH&/wcs_deploy_`date +%Y%m%d%H%M%S`.log
+

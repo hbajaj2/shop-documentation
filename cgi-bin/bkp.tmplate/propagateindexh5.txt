@@ -1,0 +1,5 @@
+&wcs_ev& Endeca Propagate Index To H5 - &ENV&
+UNIX User - endeca
+
+Propagate index to live mdexes
+$./propagate_index_to_live.sh DistributeIndexLiveHall5 2>&1 | tee /mslogs/deploy-logs/endeca-&BRANCH&/propogateIndex_`date +%Y%m%d%H%M%S`.log

@@ -1,0 +1,37 @@
+Appendix 1 : Hall 8 Server List
+
+CQ Publish Instance 		-    p120338vaps2021
+CQ Author Instance  		-    p120338vaps5001
+Endeca Workbench, ITL Server 	-    p120338vaps5021
+Endeca Author Mdex servers 	-    p120338vaps5041,p120338vaps5042
+Endeca Live Mdex servers 	-    p120338vaps2196,p120338vaps2197,p120338vaps2198,
+				     p120338vaps2199,p120338vaps2200,p120338vaps2201,
+				     p120338vaps2202,p120338vaps2203
+Webservers Guest   		-    p120338vwbs1031,p120338vwbs1032,p120338vwbs1033,
+				     p120338vwbs1034,p120338vwbs1035,p120338vwbs1036,
+				     p120338vwbs1037,p120338vwbs1038,p120338vwbs1039,
+				     p120338vwbs1040,p120338vwbs1041,p120338vwbs1042
+Webservers Assisted 		-    p120338vwbs1001,p120338vwbs1002,p120338vwbs1003
+Webservers API 			-    p120338vwbs1016,p120338vwbs1017,p120338vwbs1018
+Webservers Authoring 		-    p120338vwbs5001,p120338vwbs5002
+DMGR Authoring 			-    p120338vaps5051
+Author Batch servers 		-    p120338vaps5091,p120338vaps5092
+Author AUTHCL servers 		-    p120338vaps5081,p120338vaps5082
+DMGR Live 			-    p120338vaps2281
+Live Batch Servers 		-    p120338vaps2391,p120338vaps2392
+Live Assisted Servers 		-    p120338vaps2336,p120338vaps2337,p120338vaps2338,
+				     p120338vaps2339,p120338vaps2340,p120338vaps2341
+Live API Servers 		-    p120338vaps2366,p120338vaps2367,p120338vaps2368,
+				     p120338vaps2369,p120338vaps2370
+Live-GuestCL servers 		-    p120338vaps2503,p120338vaps2504,p120338vaps2505,
+				     p120338vaps2506,p120338vaps2507,p120338vaps2508,
+				     p120338vaps2509,p120338vaps2510,p120338vaps2511,
+				     p120338vaps2512,p120338vaps2513,p120338vaps2514,
+				     p120338vaps2515,p120338vaps2516,p120338vaps2517,
+				     p120338vaps2518,p120338vaps2519,p120338vaps2520,
+				     p120338vaps2521,p120338vaps2522,p120338vaps2523
+WXS Servers			-    p120338vaps2311,p120338vaps2312,p120338vaps2313,
+				     p120338vaps2314
+Author Admin Nodes for IHS	-    p120338vaps5051,p120338vaps5091
+Live Admin Nodes for IHS	-    p120338vaps2281,p120338vaps2391
+

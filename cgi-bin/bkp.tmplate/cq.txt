@@ -1,0 +1,22 @@
+&wcs_ev& CQ Deployment - &ENV&
+UNIX User - cqadmin
+
+Code packet location,Extract the code packet and Execute permission to the script
+
+$/export/ecom/deploy/PLATFORM/cms-&BRANCH&/cms-&BRANCH&.tar.gz
+$cd /export/ecom/deploy/PLATFORM/cms-&BRANCH&/
+$tar -zxf cms-&BRANCH&.tar.gz 
+$chmod u+x ./deployCMSPackage.sh
+
+Please follow below steps
+
+Author Instance
+
+$./deployCMSPackage.sh &BRANCH& &ENV& /home/cqadmin  2>&1 | tee /mslogs/deploy-logs/cms-&BRANCH&/cms-deploy_`date +%Y%m%d%H%M%S`.log
+
+
+Publish Instance
+
+
+$./deployCMSPackage.sh &BRANCH& &ENV&publish /home/cqadmin  2>&1 | tee /mslogs/deploy-logs/cms-&BRANCH&/cms-deploy_`date +%Y%m%d%H%M%S`.log
+

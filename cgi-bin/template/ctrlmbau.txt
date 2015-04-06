@@ -1,0 +1,6 @@
+&ctrlm_ev& ControlM Change to BAU Mode
+UNIX User - ctmuser
+Servers - &ENV& Control m server
+Run below script to switch agents to BAU mode
+	$cd /apps/mns/control-m/bin
+	$./switch2BAU.sh &ENV&

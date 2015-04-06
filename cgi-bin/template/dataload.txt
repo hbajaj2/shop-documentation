@@ -1,0 +1,12 @@
+&dataload_ev& Dataload Full Deployment - &ENV&
+UNIX User - wasadmin
+Servers - Author & Live dmgr, author & live batch servers
+
+Extract the code packet and grant execute permission to the script:
+	$/export/ecom/deploy/PLATFORM/dataload-&BRANCH&/dataload-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/dataload-&BRANCH&/
+	$tar -zxf dataload-&BRANCH&.tar.gz 
+	$chmod u+x ./deployDataloadPackage.sh
+
+Deploy:
+	$./deployDataloadPackage.sh &BRANCH& &ENV& /home/wasadmin/ 2>&1 | tee /mslogs/deploy-logs/dataload-&BRANCH&/dataload _deploy_`date +%Y%m%d%H%M%S`.log

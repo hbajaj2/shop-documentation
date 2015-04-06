@@ -1,0 +1,12 @@
+&ihs_ev& Switch Hall to Replica - &ENV&
+	NOTE: This step should only be performed on one author and one live webserver
+
+        UNIX User - root
+
+	cd /apps/IBM/ihs70/bin
+	
+	On Author Webservers:
+	./SwitchHall2Replica-Auth.sh &hall&
+
+	On Live Webservers:
+	./SwitchHall2Replica.sh &hall&

@@ -1,0 +1,12 @@
+&wcs_ev& WCS Full Deployment - &ENV&
+UNIX User - wasadmin
+
+Code packet location,Extract the code packet and Execute permission to the script
+
+	$/export/ecom/deploy/PLATFORM/wcs-&BRANCH&/wcs-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/wcs-&BRANCH&/
+	$tar -zxf wcs-&BRANCH&.tar.gz 
+	$chmod u+x ./deployWCSPackage.sh
+
+Please follow below steps to run WCS Author/Live full deployment
+	$./deployWCSPackage.sh &BRANCH& &ENV& extPropsPath=/home/wasadmin runRolling=false 2>&1 | tee /mslogs/deploy-logs/wcs-&BRANCH&/wcs_deploy_`date+%Y%m%d%H%M%S`.log

@@ -1,0 +1,45 @@
+&wcs_ev&  WXS Restart services - &ENV&
+
+Restart of Hall5 
+
+Login to the first WXS server instance of hall5 server using wxsuser
+Get domain count for both the environments with below commands
+	$cd /apps/IBM/wxs_catalog/ObjectGrid/bin
+	$./xsadmin.sh -mapsizes -p 1105
+
+Execute below command of dismiss link to break the link between WXS catalog servers from Hall8 and Hall5.
+	$cd /apps/IBM/wxs_catalog/ObjectGrid/bin
+	$./xsadmin.sh -ch s221533vaps2311 -p 1105 -dismissLink H8_PROD_INVCAT
+
+Change working directory to WXS scripts bin location
+	$cd <<WXS Deployment location>>/bin
+
+Example:
+	$cd /apps/mns/wxs/bin
+
+Restart Commands for catalog servers (ripple restart)
+
+Restart Catalog servers for inventory (All nodes one by one)
+	$./rippleRestartWXS.sh h5prod INV CAT 2>&1 | tee ./logs/H5_INV_CAT_RIPPLE.log
+
+Restart Catalog servers for Dynacache (All nodes one by one)
+
+	$./rippleRestartWXS.sh h5prod DYN CAT 2>&1 | tee ./logs/H5_DYN_CAT_RIPPLE.log
+
+Restart Commands for Container servers : Inventory and Dynacache (ripple restart)
+
+Restart Container servers for inventory (All nodes one by one)
+	$./rippleRestartWXS.sh h5prod INV CON 2>&1 | tee ./logs/H5_INV_CON_RIPPLE.log
+
+Restart Container servers for Dynacache (All nodes one by one)
+	$./rippleRestartWXS.sh h5prod DYN CON 2>&1 | tee ./logs/H5_DYN_CON_RIPPLE.log
+
+Establish link between Hall8 and Hall5 with below command.
+	$cd /apps/IBM/wxs_catalog/Objectgrid/bin
+	$./xsadmin.sh -ch S221533vaps2311  -p 1105 -establishLink H8_PROD_INVCAT S220823vaps2311:2809, S220823vaps2312:2809, S220823vaps2313:2809
+ 
+
+Validate domain count for inventory mapsizes with below command.
+
+	$cd /apps/IBM/wxs_catalog/ObjectGrid/bin
+	$./xsadmin.sh -mapsizes -p 1105

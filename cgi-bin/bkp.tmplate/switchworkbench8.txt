@@ -1,0 +1,20 @@
+&wcs_ev& Switch Endeca Workbench To H8 - &ENV&
+UNIX User - endeca
+
+Below changes are required for Hall5 and Hall8 endeca ITL servers
+
+On Hall 5
+
+Stop Workbench services on Hall 5 endeca ITL server along with service alert
+
+$/opt/endeca/Workbench/2.1.1/server/bin/shutdown.sh
+
+On Hall 8
+
+Modify workbench startup script on Hall 8 and change PREFERED_HOST_NAME as that of hall 8 server’s host name
+
+$vi /opt/endeca/Workbench/2.1.1/server/bin/startup.sh 
+
+Start Workbench service with below command
+
+$/opt/endeca/Workbench/2.1.1/server/bin/startup.sh

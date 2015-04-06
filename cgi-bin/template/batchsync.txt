@@ -1,0 +1,6 @@
+&wcs_ev& Execute Batch sync command - &ENV&
+
+UNIX User - root
+	Execute the batch job from both Author and live DMGR from roots cron tab to sync the data from DMGR to respective environments batch servers.
+	Example:
+	$su - wasadmin -c "/home/wasadmin/bin/wcsbatchrsync"

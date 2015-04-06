@@ -1,0 +1,12 @@
+&ihs_ev& Internal Tooling Switch - &ENV&
+
+The change is required to stop webservers on below nodes.
+This way the tooling traffic switches to secondary hall.
+Services switched to secondary hall:
+	adminconsole
+	lobtools
+	orgadmin
+
+Nodes :
+	Live Admin Node (DMGR)
+	Live Batch Node 1

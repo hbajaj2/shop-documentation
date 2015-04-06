@@ -1,0 +1,5 @@
+&EV& Akamai Switch 100:0
+	UNIX User - wasadmin
+
+	cd /apps/mns/msjobs/bin
+	./changeGTM.sh 100

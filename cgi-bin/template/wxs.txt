@@ -1,0 +1,12 @@
+&wcs_ev& WXS Full Deployment - &ENV&
+UNIX User - wxsuser
+
+Code packet location,Extract the code packet and Execute permission to the script
+
+	$/export/ecom/deploy/PLATFORM/wxs-&BRANCH&/wxs-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/wxs-&BRANCH&/
+	$tar -zxf wxs-&BRANCH&.tar.gz
+	$chmod u+x ./deployWXSPackage.sh
+
+Please follow below steps to run WXS Live deployment 
+	$./deployWXSPackage.sh &BRANCH& &ENV& 2>&1 | tee /mslogs/deploy-logs/wxs-&BRANCH&/wxs _deploy_`date +%Y%m%d%H%M%S`.log

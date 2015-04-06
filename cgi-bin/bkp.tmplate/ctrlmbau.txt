@@ -1,0 +1,18 @@
+&ctrlm_ev& ControlM Change to BAU Mode
+
+UNIX User - ctmuser
+
+ControlM Change to BAU Mode
+Log on to control m server using ctmuser.
+Hold Jobs
+$cd /apps/mns/control-m/bin
+$./holdDeleteJob.sh &ENV& HOLD ALL
+
+Run below script to switch agents to BAU mode
+$cd /apps/mns/control-m/bin
+$./switch2BAU.sh &ENV&
+
+Free Jobs
+$cd /apps/mns/control-m/bin
+$./freeJob.sh &ENV& ALL
+

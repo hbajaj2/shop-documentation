@@ -1,0 +1,4 @@
+&wcs_ev& Datagaurd Break On LIVE DB - &ENV&
+
+
+Break the sync between Woking to AMS database from DataGaurd for Live database only

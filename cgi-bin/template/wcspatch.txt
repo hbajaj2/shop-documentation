@@ -1,0 +1,13 @@
+&wcs_ev& WCS Patch Deployment - &ENV&
+UNIX User - wasadmin
+
+Code packet location,Extract the code packet and Execute permission to the script
+
+	$/export/ecom/deploy/PLATFORM/wcs-&BRANCH&/wcs-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/wcs-&BRANCH&/
+	$tar -zxf wcs-&BRANCH&.tar.gz 
+	$chmod u+x ./deployWCSPatch.sh
+
+Please follow below steps:
+	$./deployWCSPatch.sh &BRANCH& @instanceType@ /apps/IBM/Websphere/ws70 patch-&BRANCH&.zip &ENV& /home/wasadmin false 2>&1 | tee /mslogs/deploy-logs/wcs-&BRANCH&/wcs_patch_deploy_`date +%Y%m%d%H%M%S`.log
+

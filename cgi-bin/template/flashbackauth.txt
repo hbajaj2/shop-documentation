@@ -1,0 +1,6 @@
+&wcs_ev& Perform Flashback on WCS Auth DB - &ENV&
+	
+Shut down all WAS Auth Clusters (both halls) & hold all control m jobs before performing flashback.
+
+AT&T DBA Activity involves rolling back database to restorepoint created on WCS database.
+Please confirm once the flashback exercise is complete.

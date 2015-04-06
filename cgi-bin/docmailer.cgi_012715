@@ -1,0 +1,165 @@
+#!/bin/bash
+echo -e "Content-type: text/html\n\n"
+
+
+# (internal) routine to store POST data
+function cgi_get_POST_vars()
+{
+    # check content type
+    # FIXME: not sure if we could handle uploads with this..
+    [ "${CONTENT_TYPE}" != "application/x-www-form-urlencoded" ] && \
+    echo "bash.cgi warning: you should probably use MIME type "\
+         "application/x-www-form-urlencoded!" 1>&2
+    # save POST variables (only first time this is called)
+    [ -z "$QUERY_STRING_POST" \
+      -a "$REQUEST_METHOD" = "POST" -a ! -z "$CONTENT_LENGTH" ] && \
+        read -n $CONTENT_LENGTH QUERY_STRING_POST
+    # prevent shell execution
+    local t
+    t=${QUERY_STRING_POST//%60//} # %60 = `
+    t=${t//\`//}
+    t=${t//\$(//}
+    t=${t//%24%28//} # %24 = $, %28 = (
+    QUERY_STRING_POST=${t}
+    return
+}
+
+# (internal) routine to decode urlencoded strings
+function cgi_decodevar()
+{
+    [ $# -ne 1 ] && return
+    local v t h
+    # replace all + with whitespace and append %%
+    t="${1//+/ }%%"
+    while [ ${#t} -gt 0 -a "${t}" != "%" ]; do
+    v="${v}${t%%\%*}" # digest up to the first %
+    t="${t#*%}"       # remove digested part
+    # decode if there is anything to decode and if not at end of string
+    if [ ${#t} -gt 0 -a "${t}" != "%" ]; then
+        h=${t:0:2} # save first two chars
+        t="${t:2}" # remove these
+        v="${v}"`echo -e \\\\x${h}` # convert hex to special char
+    fi
+    done
+    # return decoded string
+    echo "${v}"
+    return
+}
+
+# routine to get variables from http requests
+# usage: cgi_getvars method varname1 [.. varnameN]
+# method is either GET or POST or BOTH
+# the magic varible name ALL gets everything
+function cgi_getvars()
+{
+    [ $# -lt 2 ] && return
+    local q p k v s
+    # prevent shell execution
+    t=${QUERY_STRING//%60//} # %60 = `
+    t=${t//\`//}
+    t=${t//\$(//}
+    t=${t//%24%28//} # %24 = $, %28 = (
+    QUERY_STRING=${t}
+    # get query
+    case $1 in
+    GET)
+        [ ! -z "${QUERY_STRING}" ] && q="${QUERY_STRING}&"
+        ;;
+    POST)
+        cgi_get_POST_vars
+        [ ! -z "${QUERY_STRING_POST}" ] && q="${QUERY_STRING_POST}&"
+        ;;
+    BOTH)
+        [ ! -z "${QUERY_STRING}" ] && q="${QUERY_STRING}&"
+        cgi_get_POST_vars
+        [ ! -z "${QUERY_STRING_POST}" ] && q="${q}${QUERY_STRING_POST}&"
+        ;;
+    esac
+    shift
+    s=" $* "
+    # parse the query data
+    while [ ! -z "$q" ]; do
+    p="${q%%&*}"  # get first part of query string
+    k="${p%%=*}"  # get the key (variable name) from it
+    v="${p#*=}"   # get the value from it
+    q="${q#$p&*}" # strip first part from query string
+    # decode and evaluate var if requested
+    [ "$1" = "ALL" -o "${s/ $k /}" != "$s" ] && \
+        eval "$k=\"`cgi_decodevar \"$v\"`\""
+    done
+    return
+}
+
+
+
+# register all GET and POST variables
+cgi_getvars BOTH ALL
+
+#Place message post submit
+echo "<pre>Your Request is getting processed, you will receive email shortly</pre>"
+#setting custom variables for document generation task
+cgi_dir=/var/www/cgi-bin
+mkdir $cgi_dir/working
+myyear=`date +'%Y'`
+
+#Add task environment dropdown specific variables, so that they can be processed in loop
+vars="prodwcs prodwcsauth prodwcsdb prodwcsauthdb prodwcsnodb prodwcsauthnodb burstwcs burstwcsauth burstwcsdb burstwcsauthdb burstwcsnodb burstwcsauthnodb proddataload prodauthdataload burstdataload burstauthdataload prodmsjobs prodauthmsjobs burstmsjobs burstauthmsjobs prodcq  prodwcspatch burstwcspatch burstupdatewrkspc produpdatewrkspc prodwxs burstwxs prodihs burstihs prodauthihs burstauthihs prodinternaltoolihs burstinternaltoolihs prodauthinternaltoolihs burstinternaltoolihs prodctrlm burstctrlm prodendeca burstendeca prodwcspatch prodwcsauthpatch burstwcspatch burstwcsauthpatch akamai1090 akamai9010 akamai1000 akamai0100 ctrlmprodonly ctrlmburstonly ctrlmbau ihsbau"
+for var in $vars
+do
+ if [ -z ${!var} ] 
+       then 
+        echo  
+      else
+	echo "The value of variable ${var} is ${!var}" 
+	var1=$(awk -F_ '{ print $1}' <<<"${!var}")
+#	var2=$(awk -F_ '{gsub(/[ \t]+$/, "", $2); print $2 ""}' <<<"${!var}")
+	var2=$(awk -F_ '{ print $2}' <<<"${!var}")
+	var3=$(awk -F_ '{gsub(/[ \t]+$/, "", $3); print $3 ""}' <<<"${!var}")
+	EV="${var}_ev"
+	RL="${var2}_RL"
+        RTAG="$Branch"_"${!RL}" 	
+	var4="${var2}${var3}"
+	echo "${var4}"
+	cp $cgi_dir/template/${var4}.txt $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+	sed -i "s/&wcs_ev&/${!EV}/g" $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+	sed -i "s/&cq5_ev&/${!EV}/g" $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+	sed -i "s/&endeca_ev&/${!EV}/g" $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+	sed -i "s/&ihs_ev&/${!EV}/g" $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+	sed -i "s/&dataload_ev&/${!EV}/g" $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+	sed -i "s/&msjobs_ev&/${!EV}/g" $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+ 	sed -i "s/&BRANCH&/$RTAG/g" $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+	sed -i "s/&ENV&/$var1/g" $cgi_dir/working/${!EV}_${var1}_${var4}.txt
+      fi	
+done
+#Capturing comment as input for the options not available within dropdown
+comments="comment1 comment2 comment3 comment4"
+for comment in $comments
+do
+  if [ -z ${!comment} ]
+	then
+	 echo  
+	else	
+	echo "The value of variable ${comment} is ${!comment}"
+	ComEV="${comment}_ev"
+	echo "${!comment}" > $cgi_dir/working/${!ComEV}_comment.txt
+	sed -i "1s/^/${!ComEV} /g" $cgi_dir/working/${!ComEV}_comment.txt
+	sed -i "s/\\r/\\n/g" $cgi_dir/working/${!ComEV}_comment.txt
+       fi	
+done
+
+#Merge and email task
+	cp $cgi_dir/template/${ENV}.txt $cgi_dir/working/50_${ENV}.txt
+	cp $cgi_dir/template/${ENV}_1.txt $cgi_dir/working/51_${ENV}.txt
+	cd $cgi_dir/working
+	echo "Table of Content" > toc.txt
+	grep -h "^[0-9]" [1-9]*.txt >> toc.txt
+	pr -F toc.txt [1-9]*.txt > impplan.txt
+	sed -i "/^$myyear/d" impplan.txt
+	enscript -B impplan.txt --output=- | ps2pdf - > imp_plan.pdf
+#	enscript -B -f "Times-Roman10" -F "Times-Bold18" impplan.txt --output=- | ps2pdf - > imp_plan.pdf
+	mailx -r docgeneration@sapient.com -a imp_plan.pdf -s "Implementation Plan for $ENV" $email_id < $cgi_dir/mailnote
+	rm -rf $cgi_dir/working/
+cat <<EOF
+</body>
+</html>
+EOF

@@ -1,0 +1,15 @@
+&wcs_ev& Update Workspace  - &ENV&
+UNIX User - wasadmin
+
+Execute below command for workspace changes delta SQL file to be generated
+
+	$cd /apps/IBM/websphere/wcs70/bin/
+	$./config_ant.sh -buildfile /apps/IBM/Websphere/wcs70/components/Workspaces/xml/updateWorkspacesSchema.xml -DinstanceName=author -DresourceXMLLocation= /apps/IBM/Websphere/ws70/profiles/author/installedApps/WCSCellauthor/WC_author.ear/xml CM_updateWorkspacesSchema -DgenerateSQLStatementsOnly=true -DgenerateSQLStatementsOutputFile= /apps/IBM/Websphere/wcs70/instances/author/logs/update-workspace-DD-MM-YYYY.sql
+
+Note- Make sure that correct cell name is passed with the command and validate that paths mentioned in the command exist
+
+	sqlplus DBAUSER@SERVICE_NAME/PASSWORD
+	Sql>spool "/opt/IBM/Websphere/wcs70/instances/author/logs/update-workspace-DD-MM-YYYY.log"
+	Sql>@/opt/IBM/Websphere/wcs70/instances/Author/logs/update-workspace-DD-MM-YYYY.sql
+	Sql> spool off;
+	Sql> exit

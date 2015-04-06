@@ -1,0 +1,9 @@
+&ctrlm_ev& Switch CtrlM Agents to &ENV&
+
+UNIX User - ctmuser
+
+Login to Control-M server as user running control M server (ctmuser). 
+Run below script to Switch agents to &ENV&.
+
+	$cd /apps/mns/control-m/bin
+	$./switch2Hall.sh &ENV&

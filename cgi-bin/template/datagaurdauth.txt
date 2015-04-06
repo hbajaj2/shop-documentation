@@ -1,0 +1,4 @@
+&wcs_ev& Datagaurd Break on AUTH DB - &ENV&
+
+
+Break the sync between Woking to AMS database from DataGaurd for Author database only

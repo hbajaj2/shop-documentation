@@ -1,0 +1,6 @@
+&ctrlm_ev& Control-M node switch to - &ENV&
+
+UNIX User - ctmuser
+
+	$cd /apps/mns/control-m/bin
+	$./switch2Hall.sh &ENV&

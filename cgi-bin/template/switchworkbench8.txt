@@ -1,0 +1,20 @@
+&wcs_ev& Switch Endeca Workbench To Second Hall - &ENV&
+UNIX User - endeca
+
+Below changes are required for First Hall and Second Hall endeca ITL servers
+
+On First Hall
+
+Stop Workbench services on First Hall endeca ITL server along with service alert
+
+	$/opt/endeca/Workbench/2.1.1/server/bin/shutdown.sh
+
+On Second Hall
+
+Modify workbench startup script on Second Hall and change PREFERED_HOST_NAME as that of Second Hall servers host name
+
+	$vi /opt/endeca/Workbench/2.1.1/server/bin/startup.sh 
+
+Start Workbench service with below command
+
+	$/opt/endeca/Workbench/2.1.1/server/bin/startup.sh

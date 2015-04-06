@@ -1,0 +1,4 @@
+&cq_ev& CQ Consistency check - &ENV& 
+
+CQ consistency check needs to be performed with help of CMS team.
+It would be done using CQ console.

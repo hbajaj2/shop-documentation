@@ -1,0 +1,30 @@
+&wcs_ev& WCS AUTHOR APAR INSTALL - &ENV&
+
+Below steps needs to be performed with root user, only on mentioned &ENV& DMGR servers. Follow the environment specific commands in order to proceed with the APAR Installation.
+
+UNIX User - root
+
+Code packet location,Extract the code packet and Execute permission to the script
+
+	$/export/ecom/deploy/PLATFORM/wcs-&BRANCH&/wcs-apars-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/wcs-&BRANCH&/
+	$tar -zxf wcs-apars-&BRANCH&.tar.gz 
+	$chmod u+x ./deployWCSAparPackage.sh 
+
+Please follow below steps to run WCS APAR installation on  &ENV& DMGR
+
+	$./prodDeployWCSAparPackage.sh &BRANCH& &ENV& | tee /mslogs/deploy-logs/wcs-&BRANCH&/wcs_apar_&ENV&_install_`date +%Y%m%d%H%M%S`.log
+	$chmod o+r  /mslogs/deploy-logs/wcs-&BRANCH&/wcs_apar_&ENV&_install_`date +%Y%m%d%H%M%S`.log
+
+Validate &ENV& APAR Installation
+
+Validate from versionInfo.sh command whether all the applying APAR were installed or not and also please provide NIFStack.xml, NIFHistory.xml for product/instance level for both author and live
+
+Permission change for WCS:
+Change the ownership of WCS directory to root user
+	$chown -R wasadmin.wasgroup /apps/IBM/Websphere/wcs70
+Execute Batch sync command:
+
+Execute the batch job from  Author  DMGR from root's cron tab to sync the data from DMGR to respective environment's batch servers
+Example:
+	$su - wasadmin -c "/home/wasadmin/bin/wcsbatchrsync"

@@ -1,0 +1,9 @@
+&wcs_ev& Endeca Propagate Index To Second Hall - &ENV&
+UNIX User - endeca
+Proapagate Index to live parametes as per the environment. Replace <<HALL_IDENTIFIER>> below:
+	SIT3B : DistributeIndexLiveHallB
+	HALL8 : DistributeIndexLiveHall8 
+
+Propagate index to live mdexes
+	$cd /apps/endeca_apps/6.2.1/dt321/MAS/mcfp/ 
+	$./propagate_index_to_live.sh <<HALL_IDENTIFIER>> 2>&1 | tee /mslogs/deploy-logs/endeca-&BRANCH&/propogateIndex_`date +%Y%m%d%H%M%S`.log

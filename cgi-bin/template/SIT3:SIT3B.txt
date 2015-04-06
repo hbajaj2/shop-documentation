@@ -1,0 +1,23 @@
+Appendix 1 : SIT3 Server List
+
+CQ Publish Instance 		-    p120663vaps2023
+CQ Author Instance  		-    p120663vaps5003
+Endeca Workbench, ITL Server 	-    p120663vaps5025
+Endeca Author Mdex servers 	-    p120663vaps5045,p120663vaps5046
+Endeca Live Mdex servers 	-    p120663vaps2175,p120663vaps2176
+Webservers Guest   		-    p120663vwbs1035,p120663vwbs1036
+Webservers Assisted 		-    p120663vwbs1005,p120663vwbs1006
+Webservers API 			-    p120663vwbs1020,p120663vwbs1021
+Webservers Authoring 		-    p120663vwbs5005,p120663vwbs5006
+DMGR Authoring 			-    p120663vaps5053
+Author Batch servers 		-    p120663vaps5095,p120663vaps5096
+Author AUTHCL servers 		-    p120663vaps5085,p120663vaps5086
+DMGR Live 			-    p120663vaps2263
+Live Batch Servers 		-    p120663vaps2370,p120663vaps2371
+Live Assisted Servers 		-    p120663vaps2491,p120663vaps2492
+Live API Servers 		-    p120663vaps2493,p120663vaps2494
+Live-GuestCL servers 		-    p120663vaps2495,p120663vaps2496
+WXS Servers			-    p120663vaps2290,p120663vaps2291
+Author Admin Nodes for IHS	-    p120663vaps5053,p120663vaps5085
+Live Admin Nodes for IHS	-    p120663vaps2263,p120663vaps2370
+

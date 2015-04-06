@@ -1,0 +1,19 @@
+&wcs_ev& Copy All Shared Mount Snap Mirrors From Prod to DR - &ENV&
+
+Make sure you take the backup of serverctl on both CQ author and publish instances
+
+On Author:
+	$cp /nas-cq-auth/CQ5/author/crx-quickstart/server/serverctl /home/cqadmin/serverctl.BKP
+
+On Publish:
+	$cp /nas-cq-pub/CQ5/publish/crx-quickstart/server/serverctl  /home/cqadmin/serverctl.BKP
+
+Make sure that endeca and CQ services are stopped before copying the snap mirror. Post copying need validation of the files timestamp and service restart is required.
+
+Examples: 
+	/nas-cq-auth
+	/nas-cq-pub
+	/nas-search-itl
+
+	/nas-wcs/web
+	/nas-wcs-auth-web

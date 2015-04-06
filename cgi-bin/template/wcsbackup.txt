@@ -1,0 +1,11 @@
+&wcs_ev& WCS70 Backup 
+
+UNIX User - wasadmin
+
+Execute below command with root user
+
+	$mkdir -p /export/ecom/backup/wcs70_before_apar_ddmmyyyy_hhmm
+	$rsync -rltpD /apps/IBM/Websphere/wcs70/ /export/ecom/backup/wcs70_before_apar_ddmmyyyy_hhmm
+Example:
+	$mkdir -p /export/ecom/backup/wcs70_before_apar_10092014_0730
+	$rsync -rltpD /apps/IBM/Websphere/wcs70/ /export/ecom/backup/wcs70_before_apar_10092014_0730

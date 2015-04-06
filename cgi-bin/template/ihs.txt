@@ -1,0 +1,37 @@
+&ihs_ev& IHS Deployment - &ENV&
+UNIX User - root
+
+IHS Packet Location:
+	/export/ecom/deploy/PLATFORM/ihs-&RL&/ihs-&RL&.tar.gz
+	
+Extract IHS Packet:
+	cd /export/ecom/deploy/PLATFORM/
+	mkdir conf 
+	tar -C conf -zxf ihs-&RL&.tar.gz 
+
+Backup existing config:
+	cp -Lr /apps/IBM/ihs70/conf  /apps/IBM/ihs70/conf_`date +%Y-%m-%d`
+	cp -r conf/* /apps/IBM/ihs70/conf/
+
+Execute Script:
+	
+	1. Author Nodes:
+  	    chmod u+x token-auth.sh
+	    ./token-auth.sh &hall&
+
+
+	2. Live Nodes:
+	    chmod u+x token-live.sh
+	    ./token-live.sh &hall&
+
+	3. Author Admin nodes:
+	    chmod u+x token-auth.sh
+	    ./token-auth.sh 
+
+
+	4. Live Admin nodes:
+	    chmod u+x token-live.sh
+	    ./token-live.sh
+	
+Graceful restart:
+	/apps/IBM/ihs70/bin/apachectl -k graceful

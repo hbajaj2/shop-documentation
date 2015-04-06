@@ -1,0 +1,5 @@
+&EV& Akamai Switch 10:90
+	UNIX User - wasadmin
+	-- Execute below command on &ENV& : Live Batch Node 1
+	cd /apps/mns/msjobs/bin
+	./changeGTM.sh 10

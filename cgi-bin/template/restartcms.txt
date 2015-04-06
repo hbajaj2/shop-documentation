@@ -1,0 +1,21 @@
+&cms_ev& Restart CMS services - &ENV&
+
+Restart the CMS Author and publish instances with cqadmin user. Make sure that the copied files have appropriate permissions.
+
+
+On Author :
+	$/apps/cq5/author/crx-quickstart/server/serverctl stop
+	$/apps/cq5/author/crx-quickstart/server/serverctl start
+
+On Publish:
+	$/apps/cq5/publish/crx-quickstart/server/serverctl stop
+	$/apps/cq5/publish/crx-quickstart/server/serverctl start
+
+Restart below script on to start the bundles.
+
+On author instance:
+	$cd /apps/mns/cq5
+	$./restart_bundle_author.sh 
+On publish instance:
+	$cd /apps/mns/cq5
+	$./restart_bundle_publish.sh 

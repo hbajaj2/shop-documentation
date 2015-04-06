@@ -1,0 +1,4 @@
+&wcs_ev& Create RestorePoint on WCS Auth DB - &ENV&
+
+	 AT&T DBA Activity, involves creating restore point on WCS database.
+	Please share the restorepoint details, so that it can be tracked.

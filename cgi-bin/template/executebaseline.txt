@@ -1,0 +1,8 @@
+&wcs_ev& Endeca Baseline Execute - &ENV&
+UNIX User - endeca
+
+Execute Endeca Baseline
+
+	$cd /apps/endeca_apps/6.2.1/dt321/MAS/mcfp/control
+
+	$./execute_baseline_update.sh 2>&1 | tee /mslogs/deploy-logs/endeca-&BRANCH&/baseline-deploy_`date +%Y%m%d%H%M%S`.log

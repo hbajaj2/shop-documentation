@@ -1,0 +1,6 @@
+&wcs_ev& Datagaurd Change and WXS Dismiss Link - &ENV& 
+
+Make sure that datagaurd is off between Woking and Amsterdam for author and live databases and enable the AMS author and live DB with read and write mode.
+Login to WXS server p120338vaps2311 with user wxsuser
+	$cd /apps/IBM/wxs/bin
+	$./xsadmin.sh -ch p120338vaps2311 -p 1105 -dismissLink H5_PROD_INVCAT

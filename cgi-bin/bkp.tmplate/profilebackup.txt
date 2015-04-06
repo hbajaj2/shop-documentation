@@ -1,0 +1,11 @@
+&wcs_ev& WAS DMGR Profile Backup 
+
+UNIX User - wasadmin
+
+Example:
+$cd <WAS_Install_Directory>profiles/<dmgr-profile-name>/bin
+$./backupConfig.sh dmgr_before_apar_ddmmyyyy.zip -nostop 
+
+Author and live DMGR
+$cd /apps/IBM/Websphere/ws70/profiles/DMgr/bin
+$./backupConfig.sh dmgr_before_apar_28082014.zip -nostop 

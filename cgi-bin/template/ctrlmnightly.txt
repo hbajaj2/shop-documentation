@@ -1,0 +1,18 @@
+&ctrlm_ev& Ctrl-M Nightly manual execution - &ENV&
+
+Execute following steps on Ctrl-M server:
+Unix User : ctmuser
+1. Login to control M server with application user.
+2. Go to below directory
+	$cd /apps/mns/control-m/bin
+3. Execute below command to reorder Nightly jobs for on demand run.
+   Script requires two parameter: Env_name and NewNightlyTime.
+   NewNightlyTime should be approx 10 min more than the current system time.
+	$./reorderNightly.sh &ENV& 1530 
+4. Wait for all the jobs to get reordered on control M -EM.
+5. Execute the job with name (*_WCSPDUM120) by navigating below on control M EM
+	Right Click on JOB -> By Pass -> Pre- Submission(Run Now)
+6. Wait for nightly completion
+7. Restore nightly group to its default schedule with below command on control M Server
+	$./restoreNightly &ENV& 
+			

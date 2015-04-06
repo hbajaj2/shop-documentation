@@ -1,0 +1,12 @@
+&msjobs_ev& MSJobs Full Deployment - &ENV&
+UNIX User - wasadmin
+Servers - Author & Live dmgr, author & live batch servers
+
+Extract code packet and grant execute permission to the script:
+	$/export/ecom/deploy/PLATFORM/msjobs-&BRANCH&/msjobs-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/msjobs-&BRANCH&/
+	$tar -zxf msjobs-&BRANCH&.tar.gz 
+	$chmod u+x ./deployMSjobsPackage.sh
+
+Deploy:
+	$./deployMSjobsPackage.sh &BRANCH& &ENV& /home/wasadmin/ 2>&1 | tee /mslogs/deploy-logs/msjobs-&BRANCH&/msjobs_deploy_`date +%Y%m%d%H%M%S`.log

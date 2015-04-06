@@ -1,0 +1,12 @@
+&ihs_ev& Internal Tooling Switch - &ENV&
+
+The change is required to stop webservers on below nodes.
+This way the tooling traffic switches to secondary hall.
+Services switched to secondary hall:
+	authadminconsole
+	authlobtools
+	authorgadmin
+
+Nodes :
+	Author Admin Node (DMGR)
+	Author Batch Node 1

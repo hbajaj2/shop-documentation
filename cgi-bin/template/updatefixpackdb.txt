@@ -1,0 +1,15 @@
+&wcs_ev& Applying FIX pack db changes - &ENV&
+
+UNIX User - wasadmin
+
+Login to author and live dmgr servers with wasadmin user.
+Go to below location
+	$cd /apps/IBM/Websphere/wcs70/bin
+
+Execute below command to applyu DB only changes with the environment.
+	$./updated.sh <instance_name>
+
+Example:
+
+	$./updated.sh author
+	$./updated.sh guest

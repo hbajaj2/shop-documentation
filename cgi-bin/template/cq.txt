@@ -1,0 +1,34 @@
+&wcs_ev& CQ Backup & Deployment - &ENV&
+UNIX User - cqadmin
+
+Stop CQ:
+	On CQ Author:
+	$/apps/cq5/author/crx-quickstart/server/serverctl stop
+	On CQ Publish:
+	$/apps/cq5/publish/crx-quickstart/server/serverctl stop
+
+BACKUP:
+	On CQ Author:
+	$rsync -rltpD  /apps/cq5/author/ /export/ecom/backup/author_before_CMS_Deployment_`date '+%Y%m%d%H%M%S'`
+	On CQ Publish:
+	$rsync -rltpD  /apps/cq5/publish/ /export/ecom/backup/publish_before_CMS_Deployment_`date '+%Y%m%d%H%M%S'`
+
+Start CQ:
+        On CQ Author:
+        $/apps/cq5/author/crx-quickstart/server/serverctl start
+        On CQ Publish:
+        $/apps/cq5/publish/crx-quickstart/server/serverctl start
+
+Extract the code packet and provide execute permission to the script:
+	$/export/ecom/deploy/PLATFORM/cms-&BRANCH&/cms-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/cms-&BRANCH&/
+	$tar -zxf cms-&BRANCH&.tar.gz 
+	$chmod u+x ./deployCMSPackage.sh
+
+DEPLOY:
+	On CQ Author:
+	$./deployCMSPackage.sh &BRANCH& &ENV& /home/cqadmin  2>&1 | tee /mslogs/deploy-logs/cms-&BRANCH&/cms-deploy_`date +%Y%m%d%H%M%S`.log
+
+	On CQ Publish:
+	$./deployCMSPackage.sh &BRANCH& &ENV&publish /home/cqadmin  2>&1 | tee /mslogs/deploy-logs/cms-&BRANCH&/cms-deploy_`date +%Y%m%d%H%M%S`.log
+

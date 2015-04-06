@@ -1,0 +1,361 @@
+<HTML>
+<HEAD>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+<HTML>
+<HEAD>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("input[name$='ENV']").click(function() {
+                var inputid = $(this).attr('id');
+                $("input:checkbox").attr('checked', false);
+                $("div.desc").hide();
+                $("#"+inputid + "div").show();
+    });
+});
+</script>
+</HEAD>
+<BODY>
+<FORM ACTION="/cgi-bin/docmailer.cgi" METHOD="POST" enctype="application/x-www-form-urlencoded">
+Branch Details <BR>
+<SELECT NAME="Branch">
+<OPTION SELECTED>Production_Support</OPTION>
+<OPTION>Trunk</OPTION>
+<OPTION>Release_Testing_Support</OPTION>
+<OPTION>Release_Development</OPTION>
+</SELECT>
+<P>
+WCS_Release_Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="wcs_RL" SIZE="4">
+<P>
+<P>
+CQ5_Release_Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="cq5_RL" SIZE="4">
+<P>
+<P>
+Endeca_Release_Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="endeca_RL" SIZE="4">
+<P>
+<P>
+Dataload Release Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="dataload_RL" SIZE="4">
+<P>
+<P>
+MSJobs Release Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="msjobs_RL" SIZE="4">
+<P>
+<P>
+IHS Release Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="ihs_RL" SIZE="4">
+<P>
+<P>
+WXS Release Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="wxs_RL" SIZE="4">
+<P>
+Enter Sapient Email ID<BR>
+<INPUT TYPE="TEXT" NAME="email_id" SIZE="50">
+<P>
+Select Environment
+<INPUT TYPE="RADIO" NAME="ENV" id="prod" VALUE="Prod/Burst"> Prod/Burst
+<INPUT TYPE="RADIO" NAME="ENV" id="sit3" VALUE="SIT3/SIT3B"> SIT3/SIT3B
+<INPUT TYPE="RADIO" NAME="ENV" id="sit1" VALUE="SIT1"> SIT1
+<INPUT TYPE="RADIO" NAME="ENV" id="sit2" VALUE="SIT2"> SIT2
+<INPUT TYPE="RADIO" NAME="ENV" id="dr" VALUE="DR"> DR
+<P>
+<div id="proddiv" class="desc" style="display:none;">
+        <input type="checkbox" name="prodwcs" value="h5prod_wcs">
+        <select name="prodwcs_ev">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+        </select>
+        Prod WCS<br>
+        <input type="checkbox" name="prodcq5" value="h5prod_cq5">
+        <select name="prodcq5_ev">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+        </select>
+        Prod CQ5<br>
+        <input type="checkbox" name="prodendeca" value="h5prod_endeca">
+        <select name="prodendeca_ev">
+        <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+        </select>
+        Prod Endeca<br>
+        <input type="checkbox" name="burstwcs" value="h8prod_wcs">
+        <select name="burstwcs_ev">
+        <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+        </select>
+        Burst WCS<br>
+        <input type="checkbox" name="burstendeca" value="h8prod_endeca">
+        <select name="burstendeca_ev">
+        <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+        </select>
+        Burst Endeca<br>
+	 <input type="checkbox" name="additionaldetails1" value="true">
+	 <select name="comment1_ev">
+	  <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+	</select>
+	<textarea name="comment1" cols="50" rows="5">
+	</textarea><br>
+	<input type="checkbox" name="additionaldetails2" value="true">
+	 <select name="comment2_ev">
+	  <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+	</select>
+	<textarea name="comment2" cols="50" rows="5">
+	</textarea><br>
+	<input type="checkbox" name="additionaldetails3" value="true">
+	 <select name="comment3_ev">
+	  <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+	</select>
+	<textarea name="comment3" cols="50" rows="5">
+	</textarea><br>
+	<input type="checkbox" name="additionaldetails4" value="true">
+	 <select name="comment4_ev">
+	  <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+	</select>
+	<textarea name="comments4" cols="50" rows="5">
+	</textarea>
+</div>
+<div id="sit3div" class="desc" style="display:none;">
+        <input type="checkbox" name="action1" value="sit3wcs">
+        <select name="listvalue1">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+	  <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+	  <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+        </select>
+        SIT3 WCS<br>
+        <input type="checkbox" name="action2" value="cq5">
+        <select name="listvalue2">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+        </select>
+        SIT3 CQ5<br>
+        <input type="checkbox" name="action3" value="sit3endeca">
+        <select name="listvalue3">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+        </select>
+        SIT3 Endeca
+</div>
+<INPUT TYPE="SUBMIT" NAME="submit" VALUE="Submit">
+</FORM>
+</BODY>
+</HTML>

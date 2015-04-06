@@ -1,0 +1,4 @@
+&wcs_ev& Restart JVMs 
+
+Note: Make sure send the server status file after restart JVMS (e-business)
+From WAS admin console, full synchronize all nodes and restart all WAS Author and Live clusters from WAS Admin Console

@@ -1,0 +1,1715 @@
+<!doctype html>
+<HTML>
+  <HEAD>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+      <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $("input[name$='ENV']").click(function() {
+                      var inputid = $(this).attr('id');
+                      $("input:checkbox").attr('checked', false);
+                      $("div.desc").hide();
+                      $("#"+inputid + "div").show();
+          });
+      });
+    </script>
+ <style type="text/css">
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #eee;
+        }
+        .form-test {
+            padding: 15px;
+            margin: 0 auto;
+        }
+   </style>    
+
+   <!-- sortable lists Start-->
+
+    
+  <script>
+  $(function() {
+    $( "#sortable1, #sortable2" ).sortable({
+      connectWith: ".list-group"
+    }).disableSelection();
+    $( "#sortable3, #sortable4" ).sortable({
+      connectWith: ".list-group"
+    }).disableSelection();
+    $( "#sortable5, #sortable6" ).sortable({
+      connectWith: ".list-group"
+    }).disableSelection();
+    $( "#sortable7, #sortable8" ).sortable({
+      connectWith: ".list-group"
+    }).disableSelection();
+    $( "#sortable9, #sortable10" ).sortable({
+      connectWith: ".list-group"
+    }).disableSelection();
+    $( "#sortable11, #sortable12" ).sortable({
+      connectWith: ".list-group"
+    }).disableSelection();    
+  });
+
+  function selectAllProd(){
+    if($('#prodall').prop('checked')) {
+      $('#sortable1 #ui-state-default').each(function(i,v) {
+         $('#sortable2').append(this);
+      });
+    }else{
+      $('#sortable2 #ui-state-default').each(function(i,v) {
+         $('#sortable1').append(this);
+      });
+    }
+  }
+  
+  function selectAllBurst(){
+    if($('#burstall').prop('checked')) {
+      $('#sortable3 #ui-state-default').each(function(i,v) {
+         $('#sortable4').append(this);
+      });
+    }else{
+      $('#sortable4 #ui-state-default').each(function(i,v) {
+         $('#sortable3').append(this);
+      });
+    }
+  }
+
+  function selectAllSit3(){
+    if($('#sit3all').prop('checked')) {
+      $('#sortable5 #ui-state-default').each(function(i,v) {
+         $('#sortable6').append(this);
+      });
+    }else{
+      $('#sortable6 #ui-state-default').each(function(i,v) {
+         $('#sortable5').append(this);
+      });
+    }
+  }
+
+  function selectAllSit3b(){
+    if($('#sit3ball').prop('checked')) {
+      $('#sortable7 #ui-state-default').each(function(i,v) {
+         $('#sortable8').append(this);
+      });
+    }else{
+      $('#sortable8 #ui-state-default').each(function(i,v) {
+         $('#sortable7').append(this);
+      });
+    }
+  }
+
+  function selectAllDR1(){
+    if($('#dr1all').prop('checked')) {
+      $('#sortable9 #ui-state-default').each(function(i,v) {
+         $('#sortable10').append(this);
+      });
+    }else{
+      $('#sortable10 #ui-state-default').each(function(i,v) {
+         $('#sortable9').append(this);
+      });
+    }
+  }
+
+  function selectAllDR2(){
+    if($('#dr2all').prop('checked')) {
+      $('#sortable11 #ui-state-default').each(function(i,v) {
+         $('#sortable12').append(this);
+      });
+    }else{
+      $('#sortable12 #ui-state-default').each(function(i,v) {
+         $('#sortable11').append(this);
+      });
+    }
+  }
+
+  function submitForm(){
+
+    var counter=0;
+
+    //Prod Hall checks
+    if(!$('#burstfirst').prop('checked')) {
+
+        $('#sortable2 input[type="hidden"]').each(function(i, v) {
+
+          $(this).val(i+1);
+          counter = i+1;
+        });
+
+        $('#sortable2 input[type="checkbox"]').each(function(i, v) {
+
+          $(this).prop('checked', true);
+
+        });
+
+        $('#sortable4 input[type="hidden"]').each(function(i, v) {
+
+          $(this).val(counter+i+1);
+
+        });
+
+
+        $('#sortable4 input[type="checkbox"]').each(function(i, v) {
+
+          $(this).prop('checked', true);
+
+        });
+    }else{
+
+        $('#sortable4 input[type="hidden"]').each(function(i, v) {
+
+          $(this).val(i+1);
+          counter = i+1;
+        });
+
+
+        $('#sortable4 input[type="checkbox"]').each(function(i, v) {
+
+          $(this).prop('checked', true);
+
+        });
+
+        $('#sortable2 input[type="hidden"]').each(function(i, v) {
+
+          $(this).val(counter+i+1);
+         
+        });
+
+        $('#sortable2 input[type="checkbox"]').each(function(i, v) {
+
+          $(this).prop('checked', true);
+
+        });
+    }//Prod Hall Order
+
+    counter=0;
+
+    if(!$('#sit3bfirst').prop('checked')) {
+
+      $('#sortable6 input[type="hidden"]').each(function(i, v) {
+
+        $(this).val(i+1);
+        counter = i+1;
+      });
+
+      $('#sortable6 input[type="checkbox"]').each(function(i, v) {
+
+        $(this).prop('checked', true);
+
+      });
+
+      $('#sortable8 input[type="hidden"]').each(function(i, v) {
+
+        $(this).val(counter+i+1);
+
+      });
+
+      $('#sortable8 input[type="checkbox"]').each(function(i, v) {
+
+        $(this).prop('checked', true);
+
+      });
+  }else{
+      $('#sortable8 input[type="hidden"]').each(function(i, v) {
+
+        $(this).val(i+1);
+        counter = i+1;
+      });
+
+      $('#sortable8 input[type="checkbox"]').each(function(i, v) {
+
+        $(this).prop('checked', true);
+
+      });
+
+      $('#sortable6 input[type="hidden"]').each(function(i, v) {
+
+        $(this).val(counter+i+1);
+      });
+
+      $('#sortable6 input[type="checkbox"]').each(function(i, v) {
+
+        $(this).prop('checked', true);
+
+      });
+  }
+    counter=0;
+
+  if(!$('#dr2first').prop('checked')) {
+
+    $('#sortable10 input[type="hidden"]').each(function(i, v) {
+
+      $(this).val(i+1);
+      counter = i+1;
+    });
+
+    $('#sortable10 input[type="checkbox"]').each(function(i, v) {
+
+      $(this).prop('checked', true);
+
+    });
+
+    $('#sortable12 input[type="hidden"]').each(function(i, v) {
+
+      $(this).val(counter+i+1);
+
+    });
+
+    $('#sortable12 input[type="checkbox"]').each(function(i, v) {
+
+      $(this).prop('checked', true);
+
+    });
+  }else{
+    $('#sortable12 input[type="hidden"]').each(function(i, v) {
+
+      $(this).val(i+1);
+      counter = i+1;
+    });
+
+    $('#sortable12 input[type="checkbox"]').each(function(i, v) {
+
+      $(this).prop('checked', true);
+
+    });
+
+    $('#sortable10 input[type="hidden"]').each(function(i, v) {
+
+      $(this).val(counter+i+1);
+      
+    });
+
+    $('#sortable10 input[type="checkbox"]').each(function(i, v) {
+
+      $(this).prop('checked', true);
+
+    });
+
+
+  }
+
+    document.forms['test'].submit();
+  }
+  </script>
+<!-- sortable lists End-->
+
+  </HEAD>
+<BODY>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="./index.html">M&S</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./index.html">Deployment <span class="sr-only">(current)</span></a></li>
+        <li><a href="http://delvmplmmcfp06.sapient.com:8080/JSPWiki/Wiki.jsp?page=Documentation%20Automation%20Help">Help</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Configurations <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Production</a></li>
+            <li><a href="#">SIT3/SIT3B</a></li>
+            <li><a href="#">DR</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Another Link</a></li>
+            </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<form name="test" action="/cgi-bin/docmailer.cgi" method="POST" class="form-test">
+<div class="container-fluid">
+ <H2>Documentation Automation</H2>
+<div class="row">
+   <div class="col-lg-12">  <label>Branch Details:</label>  </div> 
+   </div>
+<div class="row">
+  <div class="col-lg-8">
+      <SELECT NAME="Branch">
+      <OPTION SELECTED>Production_Support</OPTION>
+      <OPTION>Trunk</OPTION>
+      <OPTION>Release_Testing_Support</OPTION>
+      <OPTION>Release_Development</OPTION>
+      </SELECT>
+  </div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+    <label> WCS_Release_Label (numeric part only) </label> 
+    </div>
+</div>
+<div class="row">
+<div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="wcs_RL" SIZE="4" class="form-control">
+</div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+    <label> WCS-Patch_Release_Label (numeric part only) </label> 
+    </div>
+</div>
+<div class="row">
+<div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="wcspatch_RL" SIZE="4" class="form-control">
+</div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+    <label> WCS-APAR_Release_Label (numeric part only) </label> 
+    </div>
+</div>
+<div class="row">
+<div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="wcsapar_RL" SIZE="4" class="form-control">
+</div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+   <label>CQ5_Release_Label (numeric part only)</label>
+   </div>
+</div>
+<div class="row">
+   <div class="col-lg-3">
+   <INPUT TYPE="TEXT" NAME="cq_RL" SIZE="4" class="form-control">
+   </div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+ <label>Endeca_Release_Label (numeric part only)</label>
+ </div>
+</div>
+<div class="row">
+   <div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="endeca_RL" SIZE="4" class="form-control">
+</INPUT></div></div>
+
+<div class="row">
+   <div class="col-lg-12">
+ <label>Dataload Release Label (numeric part only)</label>
+ </div>
+ </div>
+
+ <div class="row">
+   <div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="dataload_RL" SIZE="4" class="form-control">
+</INPUT></div></div>
+
+<div class="row">
+   <div class="col-lg-12">
+ <label>MSJobs Release Label (numeric part only)</label>
+ </div></div>
+
+<div class="row">
+   <div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="msjobs_RL" SIZE="4" class="form-control">
+</INPUT></div></div>
+
+<div class="row">
+   <div class="col-lg-12">
+    <label> Ctrl-M_Release_Label (numeric part only) </label> 
+    </div>
+</div>
+<div class="row">
+<div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="ctrlm_RL" SIZE="4" class="form-control">
+</div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+ <label>IHS Release Label (numeric part only)</label>
+ </div></div>
+<div class="row">
+   <div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="ihs_RL" SIZE="4" class="form-control">
+</INPUT></div></div>
+
+<div class="row">
+   <div class="col-lg-12">
+ <label>WXS Release Label (numeric part only)</label>
+ </div></div>
+<div class="row">
+   <div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="wxs_RL" SIZE="4" class="form-control">
+</INPUT></div></div>
+
+<div class="row">
+   <div class="col-lg-12">
+ <label>Enter Sapient Email ID </label>
+ </div></div>
+<div class="row">
+   <div class="col-lg-3">
+<INPUT TYPE="TEXT" NAME="email_id" SIZE="50" class="form-control">
+</INPUT></div></div>
+
+     
+
+<div class="row">
+   <div class="col-lg-12">
+ <label>Select Environment</label>
+ </div></div> 
+<INPUT TYPE="RADIO" NAME="ENV" id="prod" VALUE="Prod:Burst"> Prod/Burst </INPUT>
+<INPUT TYPE="RADIO" NAME="ENV" id="sit3" VALUE="SIT3:SIT3B"> SIT3/SIT3B </INPUT>
+        <INPUT TYPE="RADIO" NAME="ENV" id="DR" VALUE="DR"> DR </INPUT>
+
+<div id="proddiv" class="desc" style="display:none;">
+<div class="col-sm-12"> 
+  <input type="checkbox" id="burstfirst" name="burstfirst" value="burstfirst" > <strong>Perform Burst Deployment First</strong>
+</div>
+<div class="col-sm-3"> 
+<label> Prod Deployment Steps</label><span> </span><input type="checkbox" id="prodall" name="prodall" value="prodall" onchange="selectAllProd()"> Select All
+ <ul id="sortable1" class="list-group">
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodcqconscheck" value="h5prod_cqconscheck">
+            <input type="hidden" name="prodcqconscheck_ev" value="" /> Prod CQ Consistency Step
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodflashbackauth" value="h5prod_flashbackauth">
+            <input type="hidden" name="prodflashbackauth_ev" value="" /> Prod AUTH DB Flashpoint Restore 
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodflashbacklive" value="h5prod_flashbacklive">
+            <input type="hidden" name="prodflashbacklive_ev" value="" /> Prod LIVE DB Flashpoint Restore
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodcreaterestorepointlive" value="h5prod_createrestorepointlive">
+            <input type="hidden" name="prodcreaterestorepointlive_ev" value="" />
+            Prod Create Restore Point Live DB
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodcreaterestorepointauth" value="h5prodauth_createrestorepointauth">
+            <input type="hidden" name="prodcreaterestorepointauth_ev" value="" />
+            Prod Create Restore Point on Auth DB
+	    </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="proddatagaurdauth" value="h5prod_datagaurdauth">
+            <input type="hidden" name="proddatagaurdauth_ev" value="" /> Prod AUTH DB Datagaurd Break
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="proddatagaurdlive" value="h5prod_datagaurdlive">
+            <input type="hidden" name="proddatagaurdlive_ev" value="" /> Prod LIVE DB Datagaurd Break
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="proddatagaurdenable" value="h5prod_datagaurdenable">
+            <input type="hidden" name="proddatagaurdenable_ev" value="" /> Prod Enable Datagaurd 
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodshutdownjvms" value="h5prod_shutdownjvms">
+            <input type="hidden" name="prodshutdownjvms_ev" value="" /> Prod ShutDown Auth and Live JVMS
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodprofilebackup" value="h5prod_profilebackup">
+            <input type="hidden" name="prodprofilebackup_ev" value="" /> Prod WAS DMGR Profile Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsbackup" value="h5prod_wcsbackup">
+            <input type="hidden" name="prodwcsbackup_ev" value="" /> Prod WCS70 Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodrestartjvms" value="h5prod_restartjvms">
+            <input type="hidden" name="prodrestartjvms_ev" value="" /> Prod Restart JVMs
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcs" value="h5prod_wcs">
+            <input type="hidden" name="prodwcs_ev" value="" /> Prod WCS Live Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsauth" value="h5prodauth_wcs">
+            <input type="hidden" name="prodwcsauth_ev" value="" /> Prod WCS Auth Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsdb" value="h5prod_wcs_db">
+            <input type="hidden" name="prodwcsdb_ev" value="" /> Prod WCS DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsauthdb" value="h5prodauth_wcs_db">
+            <input type="hidden" name="prodwcsauthdb_ev" value="" /> Prod WCS Auth DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsnodb" value="h5prod_wcsnodbassets">
+            <input type="hidden" name="prodwcsnodb_ev" value="" /> Prod WCS without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsauthnodb" value="h5prodauth_wcsnodbassets">
+            <input type="hidden" name="prodwcsauthnodb_ev" value="" /> Prod WCS Auth without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="proddataload" value="h5prod_dataload">
+            <input type="hidden" name="proddataload_ev" value="" /> Prod Dataload Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodauthdataload" value="h5prodauth_dataload">
+            <input type="hidden" name="prodauthdataload_ev" value="" /> Prod Dataload Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodmsjobs" value="h5prod_msjobs">
+            <input type="hidden" name="prodmsjobs_ev" value="" /> Prod MSJobs Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodauthmsjobs" value="h5prodauth_msjobs">
+            <input type="hidden" name="prodauthmsjobs_ev" value="" /> Prod MSJobs Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodinternaltoolauth" value="h5prod_internaltoolauth">
+            <input type="hidden" name="prodinternaltoolauth_ev" value="" /> Prod AUTH Internal Tooling Switch
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodinternaltoollive" value="h5prod_internaltoollive">
+            <input type="hidden" name="prodinternaltoollive_ev" value="" /> Prod LIVE Internal Tooling Switch
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodcq" value="h5prod_cq">
+            <input type="hidden" name="prodcq_ev" value="" /> Prod CQ
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcspatch" value="h5prod_wcspatch">
+            <input type="hidden" name="prodwcspatch_ev" value="" /> Prod WCS LIVE Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="produpdatewrkspcauth" value="h5prodauth_workspac">
+            <input type="hidden" name="produpdatewrkspcauth_ev" value="" /> Prod Update Workspace
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwxs" value="h5prod_wxs">
+            <input type="hidden" name="prodwxs_ev" value="" /> Prod WXS Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodrestarth5wxs" value="h5prod_restarth5wxs">
+            <input type="hidden" name="prodrestarth5wxs_ev" value="" /> Prod WXS Restart
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodihs" value="h5prod_ihs">
+            <input type="hidden" name="prodihs_ev" value="" /> Prod IHS
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+           <input type="checkbox" name="prodctrlmswitch" value="h5prod_ctrlmswitch">
+            <input type="hidden" name="prodctrlmswitch_ev" value="" /> Prod Ctrl-M Agents Switch
+            </li>     
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodctrlmbau" value="h5prod_ctrlmbau">
+            <input type="hidden" name="prodctrlmbau_ev" value="" /> Prod Ctrl-M BAU Mode
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodctrlm" value="h5prod_ctrlm">
+            <input type="hidden" name="prodctrlm_ev" value="" /> Prod Ctrl-M Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodctrlmnightly" value="h5prod_ctrlmnightly">
+            <input type="hidden" name="prodctrlmnightly_ev" value="" /> Prod Ctrl-M Nightly manual execution
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodendeca" value="h5prodauth_endeca">
+            <input type="hidden" name="prodendeca_ev" value="" /> Prod Endeca
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsauthpatch" value="h5prodauth_wcspatch">
+            <input type="hidden" name="prodwcsauthpatch_ev" value="" /> Prod WCS Auth Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodswitchworkbench5" value="h5prod_switchworkbench5">
+            <input type="hidden" name="prodswitchworkbench5_ev" value="" /> Prod Switch Workbench
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodihstoreplica" value="h5prod_ihstoreplica">
+            <input type="hidden" name="prodihstoreplica_ev" value="" /> Prod IHS to Replica
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodakamai100" value="h5prod_akamai100">
+            <input type="hidden" name="prodakamai100_ev" value="" /> Prod Akamai Traffic 100%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodakamai10" value="h5prod_akamai10">
+            <input type="hidden" name="prodakamai10_ev" value="" /> Prod Akamai Traffic 10%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsapar" value="h5prod_wcsapar">
+            <input type="hidden" name="prodwcsapar_ev" value="" /> Prod WCS Live APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodwcsauthapar" value="h5prodauth_wcsauthapar">
+            <input type="hidden" name="prodwcsauthapar_ev" value="" /> Prod WCS Auth APAR
+            </li>
+      <li class="list-group-item" id="ui-state-default">
+      <input type="checkbox" name="prodexecutebaseline" value="h5prodauth_executebaseline">
+            <input type="hidden" name="prodexecutebaseline_ev" value="" /> Prod Endeca Baseline Execute
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodpropagateindexh8" value="h5prodauth_propagateindexh8">
+            <input type="hidden" name="prodpropagateindexh8_ev" value="" /> Prod Endeca Propagate Index to H8
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="prodpropagateindexh5" value="h5prodauth_propagateindexh5">
+            <input type="hidden" name="prodpropagateindexh5_ev" value="" /> Prod Endeca Propagate Index to H5
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"additionaldetails1" value="true">
+            <input type="hidden" name="comment1_ev" value="" />
+            <textarea name="comment1" cols="30" rows="5" class="form-control"></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails2" value="true">
+            <input type="hidden" name="comment2_ev" value="" />
+            <textarea name="comment2" cols="30" rows="5" class="form-control"></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails3" value="true">
+            <input type="hidden" name="comment3_ev" value="" />
+            <textarea name="comment3" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails4" value="true">
+            <input type="hidden" name="comment4_ev" value="" />
+            <textarea name="comment4" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails5" value="true">
+            <input type="hidden" name="comment5_ev" value="" />
+            <textarea name="comment5" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails6" value="true">
+            <input type="hidden" name="comment6_ev" value="" />
+            <textarea name="comment6" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails7" value="true">
+            <input type="hidden" name="comment7_ev" value="" />
+            <textarea name="comment7" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails8" value="true">
+            <input type="hidden" name="comment8_ev" value="" />
+            <textarea name="comment8" cols="30" rows="5" class="form-control"></textarea></li>
+  </ul>
+</div>
+ <div class="col-sm-3"> 
+      <label> Selected Prod Items Below </label>
+      <ul id="sortable2" class="list-group">
+      <label class="list-group-item"> Drop Below </label>
+      <label class="list-group-item" style="display:none;"> Drop Above </label>
+      </ul>
+ </div>
+ <div class="col-sm-3"> 
+      <label> Burst Deployment Steps </label><span> </span><input type="checkbox" id="burstall" name="burstall" value="burstall" onchange="selectAllBurst()"> Select All
+ <ul id="sortable3" class="list-group">
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstflashbackauth" value="h8prod_flashbackauth">
+            <input type="hidden" name="burstflashbackauth_ev" value="" /> Burst AUTH DB Flashpoint Creation
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstflashbacklive" value="h8prod_flashbacklive">
+            <input type="hidden" name="burstflashbacklive_ev" value="" /> Burst LIVE DB Flashpoint Creation
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstshutdownjvms" value="h8prod_shutdownjvms">
+            <input type="hidden" name="burstshutdownjvms_ev" value="" />
+            Burst ShutDown Auth and Live JVMS
+            </li>   
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstprofilebackup" value="h8prod_profilebackup">
+            <input type="hidden" name="burstprofilebackup_ev" value="" />
+            Burst WAS DMGR Profile Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsbackup" value="h8prod_wcsbackup">
+            <input type="hidden" name="burstwcsbackup_ev" value="" />
+            Burst WCS70 Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstrestartjvms" value="h8prod_restartjvms">
+            <input type="hidden" name="burstrestartjvms_ev" value="" />
+            Burst Restart JVMs
+            </li> 
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcs" value="h8prod_wcs">
+            <input type="hidden" name="burstwcs_ev" value="" />
+            Burst WCS Live Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsauth" value="h8prodauth_wcs">
+            <input type="hidden" name="burstwcsauth_ev" value="" />
+            Burst WCS Auth Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsdb" value="h8prod_wcs_db">
+            <input type="hidden" name="burstwcsdb_ev" value="" />
+            Burst WCS DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsauthdb" value="h8prodauth_wcs_db">
+            <input type="hidden" name="burstwcsauthdb_ev" value="" />
+            Burst WCS Auth DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsnodb" value="h8prod_wcs_nodb">
+            <input type="hidden" name="burstwcsnodb_ev" value="" />
+            Burst WCS without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsauthnodb" value="h8prodauth_wcs_nodb">
+            <input type="hidden" name="burstwcsauthnodb_ev" value="" />
+            Burst WCS Auth without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstdataload" value="h8prod_dataload">
+            <input type="hidden" name="burstdataload_ev" value="" />
+            Burst Dataload Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstauthdataload" value="h8prodauth_dataload">
+            <input type="hidden" name="burstauthdataload_ev" value="" />
+            Burst Dataload Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstmsjobs" value="h8prod_msjobs">
+            <input type="hidden" name="burstmsjobs_ev" value="" />
+            Burst MSJobs Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstauthmsjobs" value="h8prodauth_msjobs">
+            <input type="hidden" name="burstauthmsjobs_ev" value="" />
+            Burst MSJobs Auth Nodes
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstinternaltoolauth" value="h8prod_internaltoolauth">
+            <input type="hidden" name="burstinternaltoolauth_ev" value="" /> Burst AUTH Internal Tooling Switch
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstinternaltoollive" value="h8prod_internaltoollive">
+            <input type="hidden" name="burstinternaltoollive_ev" value="" /> Burst LIVE Internal Tooling Switch
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstcq" value="h8prod_cq">
+            <input type="hidden" name="burstcq_ev" value="" />
+            Burst CQ
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcspatch" value="h8prod_wcspatch">
+            <input type="hidden" name="burstwcspatch_ev" value="" />
+            Burst WCS LIVE Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstupdatewrkspcauth" value="h8prodauth_workspac">
+            <input type="hidden" name="burstupdatewrkspcauth_ev" value="" />
+            Burst Update Workspace
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwxs" value="h8prod_wxs">
+            <input type="hidden" name="burstwxs_ev" value="" />
+            Burst WXS Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstrestarth8wxs" value="h8prod_restarth8wxs">
+            <input type="hidden" name="burstrestarth8wxs_ev" value="" />
+            Burst WXS Restart
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstihs" value="h8prod_ihs">
+            <input type="hidden" name="burstihs_ev" value="" />
+            Burst IHS
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstctrlmswitch" value="h8prod_ctrlmswitch">
+            <input type="hidden" name="burstctrlmswitch_ev" value="" />
+            Burst Ctrl-M Agents Switch
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstctrlmbau" value="h8prod_ctrlmbau">
+            <input type="hidden" name="burstctrlmbau_ev" value="" />
+            Burst Ctrl-M BAU Mode
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstctrlm" value="h8prod_ctrlm">
+            <input type="hidden" name="burstctrlm_ev" value="" />
+            Burst Ctrl-M Deployment
+            </li>
+           <li class="list-group-item" id="ui-state-default">
+           <input type="checkbox" name="burstctrlmnightly" value="h8prod_ctrlmnightly">
+           <input type="hidden" name="burstctrlmnightly_ev" value="" /> Burst Ctrl-M Nightly manual execution
+           </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstendeca" value="h8prodauth_endeca">
+            <input type="hidden" name="burstendeca_ev" value="" />
+            Burst Endeca
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsauthpatch" value="h8prodauth_wcspatch">
+            <input type="hidden" name="burstwcsauthpatch_ev" value="" />
+            Burst WCS Auth Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstswitchworkbench8" value="h8prod_switchworkbench8">
+            <input type="hidden" name="burstswitchworkbench8_ev" value="" />
+            Burst Switch Workbench
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstihstoreplica" value="h8prod_ihstoreplica">
+            <input type="hidden" name="burstihstoreplica_ev" value="" />
+            Burst IHS to Replica
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstakamai100" value="h8prod_akamai0">
+            <input type="hidden" name="burstakamai100_ev" value="" />
+            Burst Akamai Traffic 100%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstakamai10" value="h8prod_akamai90">
+            <input type="hidden" name="burstakamai10_ev" value="" />
+            Burst Akamai Traffic 10%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsapar" value="h8prod_wcsapar">
+            <input type="hidden" name="burstwcsapar_ev" value="" />
+            Burst WCS Live APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstwcsauthapar" value="h8prodauth_wcsauthapar">
+            <input type="hidden" name="burstwcsauthapar_ev" value="" />
+            Burst WCS Auth APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstexecutebaseline" value="h8prodauth_executebaseline">
+            <input type="hidden" name="burstexecutebaseline_ev" value="" />
+            Burst Endeca Baseline Execute
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstpropagateindexh8" value="h8prodauth_propagateindexh8">
+            <input type="hidden" name="burstpropagateindexh8_ev" value="" />
+            Burst Endeca Propagate Index to H8
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="burstpropagateindexh5" value="h8prodauth_propagateindexh5">
+            <input type="hidden" name="burstpropagateindexh5_ev" value="" />
+            Burst Endeca Propagate Index to H5
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="ihsbau" value="h5prod_ihsbau">
+            <input type="hidden" name="ihsbau_ev" value="" />
+            IHS BAU
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails9" value="true">
+            <input type="hidden" name="comment9_ev" value="" />
+            <textarea name="comment9" cols="30" rows="5" class="form-control"></textarea>
+            
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails10" value="true">
+            <input type="hidden" name="comment10_ev" value="" />
+            <textarea name="comment10" cols="30" rows="5" class="form-control"></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails11" value="true">
+            <input type="hidden" name="comment11_ev" value="" />
+            <textarea name="comment11" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails12" value="true">
+            <input type="hidden" name="comment12_ev" value="" />
+            <textarea name="comment12" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails13" value="true">
+            <input type="hidden" name="comment13_ev" value="" />
+            <textarea name="comment13" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails14" value="true">
+            <input type="hidden" name="comment14_ev" value="" />
+            <textarea name="comment14" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails15" value="true">
+            <input type="hidden" name="comment15_ev" value="" />
+            <textarea name="comment15" cols="30" rows="5" class="form-control"></textarea></li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="additionaldetails16" value="true">
+            <input type="hidden" name="comment16_ev" value="" />
+            <textarea name="comment16" cols="30" rows="5" class="form-control"></textarea></li>
+ </ul>
+ </div>
+ <div class="col-sm-3"> 
+      <label> Selected Burst Items Below </label>
+      <ul id="sortable4" class="list-group">
+      <label class="list-group-item"> Drop Below </label>
+      <label class="list-group-item" style="display:none;"> Drop Above </label>
+      </ul>
+ </div>
+  </div>
+
+     <div id="sit3div" class="desc" style="display:none;">
+    <div class="col-sm-12"> 
+      <input type="checkbox" id="sit3bfirst" name="sit3bfirst" value="sit3bfirst" > <strong>Perform SIT3B Deployment First </strong>
+    </div>
+      <div class="col-sm-3"> 
+       <label> SIT3 Deployment Steps</label><span> </span><input type="checkbox" id="sit3all" name="sit3all" value="sit3all" onchange="selectAllSit3()"> Select All
+        <ul id="sortable5" class="list-group">
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3cqconscheck" value="sit3_cqconscheck">
+            <input type="hidden" name="sit3cqconscheck_ev" value="" /> Sit3 CQ Consistency Step
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3shutdownjvms" value="sit3_shutdownjvms">
+            <input type="hidden" name="sit3shutdownjvms_ev" value="" />
+            Sit3 ShutDown Auth and Live JVMS
+            </li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3createrestorepointlive" value="sit3_createrestorepointlive">
+            <input type="hidden" name="sit3createrestorepointlive_ev" value="" />
+            Sit3 Create Restore Point Live DB
+            </li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3createrestorepointauth" value="sit3auth_createrestorepointauth">
+            <input type="hidden" name="sit3createrestorepointauth_ev" value="" />
+            Sit3 Create Restore Point on Auth DB
+			</li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3logicaldbrollbacklive" value="sit3_logicaldbrollbacklive">
+            <input type="hidden" name="sit3logicaldbrollbacklive_ev" value="" />
+            Sit3 Logical DB Rollback Live DB
+			</li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3logicaldbrollbackauth" value="sit3auth_logicaldbrollbackauth">
+            <input type="hidden" name="sit3logicaldbrollbackauth_ev" value="" />
+            Sit3 Logical DB Rollback Auth DB
+			</li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3flashbackauth" value="sit3auth_flashbackauth">
+            <input type="hidden" name="sit3flashbackauth_ev" value="" />
+            Sit3 Flashback Auth DB
+			</li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3flashbacklive" value="sit3_flashbacklive">
+            <input type="hidden" name="sit3flashbacklive_ev" value="" />
+            Sit3 Flashback Live DB
+			</li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3ctrlmnightly" value="sit3_ctrlmnightly">
+            <input type="hidden" name="sit3ctrlmnightly_ev" value="" />
+            Sit3 Execute Nightly Manually
+			</li>
+                        <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3ctrlmnightly2" value="sit3_ctrlmnightly">
+            <input type="hidden" name="sit3ctrlmnightly2_ev" value="" />
+            Sit3 Execute Nightly Manually
+                        </li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3internaltoollive" value="sit3_internaltoollive">
+            <input type="hidden" name="sit3internaltoollive_ev" value="" />
+            Sit3 Live Internal Tool Switch to Burst Hall
+			</li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3internaltoolauth" value="sit3auth_internaltoolauth">
+            <input type="hidden" name="sit3internaltoolauth_ev" value="" />
+            Sit3 Auth Internal Tool Switch to Burst Hall
+			</li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3profilebackup" value="sit3_profilebackup">
+            <input type="hidden" name="sit3profilebackup_ev" value="" />
+            Sit3 WAS DMGR Profile Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsbackup" value="sit3_wcsbackup">
+            <input type="hidden" name="sit3wcsbackup_ev" value="" />
+            Sit3 WCS70 Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3restartjvms" value="sit3_restartjvms">
+            <input type="hidden" name="sit3restartjvms_ev" value="" />
+            Sit3 Restart JVMs
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcs" value="sit3_wcs">
+            <input type="hidden" name="sit3wcs_ev" value="" />
+            Sit3 WCS Live Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsauth" value="sit3auth_wcs">
+            <input type="hidden" name="sit3wcsauth_ev" value="" />
+            Sit3 WCS Auth Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsdb" value="sit3_wcs_db">
+            <input type="hidden" name="sit3wcsdb_ev" value="" />
+            Sit3 WCS DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsauthdb" value="sit3auth_wcs_db">
+            <input type="hidden" name="sit3wcsauthdb_ev" value="" />
+            Sit3 WCS Auth DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsnodb" value="sit3_wcs_nodb">
+            <input type="hidden" name="sit3wcsnodb_ev" value="" />
+            Sit3 WCS without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsauthnodb" value="sit3auth_wcs_nodb">
+            <input type="hidden" name="sit3wcsauthnodb_ev" value="" />
+            Sit3 WCS Auth without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3dataload" value="sit3_dataload">
+            <input type="hidden" name="sit3dataload_ev" value="" />
+            Sit3 Dataload Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3authdataload" value="sit3auth_dataload">
+            <input type="hidden" name="sit3authdataload_ev" value="" />
+            Sit3 Dataload Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3msjobs" value="sit3_msjobs">
+            <input type="hidden" name="sit3msjobs_ev" value="" />
+            Sit3 MSJobs Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3authmsjobs" value="sit3auth_msjobs">
+            <input type="hidden" name="sit3authmsjobs_ev" value="" />
+            Sit3 MSJobs Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3cq" value="sit3_cq">
+            <input type="hidden" name="sit3cq_ev" value="" />
+            Sit3 CQ
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcspatch" value="sit3_wcspatch">
+            <input type="hidden" name="sit3wcspatch_ev" value="" />
+            Sit3 WCS LIVE Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3updatewrkspcauth" value="sit3auth_workspac">
+            <input type="hidden" name="sit3updatewrkspcauth_ev" value="" />
+            Sit3 Update Workspace
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wxs" value="sit3_wxs">
+            <input type="hidden" name="sit3wxs_ev" value="" />
+            Sit3 WXS Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3restarth5wxs" value="sit3_restarth5wxs">
+            <input type="hidden" name="sit3restarth5wxs_ev" value="" />
+            Sit3 WXS Restart
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3ihs" value="sit3_ihs">
+            <input type="hidden" name="sit3ihs_ev" value="" />
+            Sit3 IHS
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3ctrlmswitch" value="sit3_ctrlmswitch">
+            <input type="hidden" name="sit3ctrlmswitch_ev" value="" />
+            Sit3 Ctrl-M Agents Switch
+            </li>     
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3ctrlmbau" value="sit3_ctrlmbau">
+            <input type="hidden" name="sit3ctrlmbau_ev" value="" />
+            Sit3 Ctrl-M BAU Mode
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3ctrlm" value="sit3_ctrlm">
+            <input type="hidden" name="sit3ctrlm_ev" value="" />
+            Sit3 Ctrl-M Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3endeca" value="sit3auth_endeca">
+            <input type="hidden" name="sit3endeca_ev" value="" />
+            Sit3 Endeca
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsauthpatch" value="sit3auth_wcspatch">
+            <input type="hidden" name="sit3wcsauthpatch_ev" value="" />
+            Sit3 WCS Auth Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3switchworkbench5" value="sit3_switchworkbench5">
+            <input type="hidden" name="sit3switchworkbench5_ev" value="" />
+            Sit3 Switch Workbench
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3ihstoreplica" value="sit3_ihstoreplica">
+            <input type="hidden" name="sit3ihstoreplica_ev" value="" />
+            Sit3 IHS to Replica
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3akamai100" value="sit3_akamai100">
+            <input type="hidden" name="sit3akamai100_ev" value="" />
+            Sit3 Akamai Traffic 100%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3akamai10" value="sit3_akamai10">
+            <input type="hidden" name="sit3akamai10_ev" value="" />
+            Sit3 Akamai Traffic 10%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsapar" value="sit3_wcsapar">
+            <input type="hidden" name="sit3wcsapar_ev" value="" />
+            Sit3 WCS Live APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3wcsauthapar" value="sit3auth_wcsauthapar">
+            <input type="hidden" name="sit3wcsauthapar_ev" value="" />
+            Sit3 WCS Auth APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3executebaseline" value="sit3auth_executebaseline">
+            <input type="hidden" name="sit3executebaseline_ev" value="" />
+            Sit3 Endeca Baseline Execute
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3propagateindexh8" value="sit3auth_propagateindexh8">
+            <input type="hidden" name="sit3propagateindexh8_ev" value="" />
+            Sit3 Endeca Propagate Index to H8
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3propagateindexh5" value="sit3auth_propagateindexh5">
+            <input type="hidden" name="sit3propagateindexh5_ev" value="" />
+            Sit3 Endeca Propagate Index to H5
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"sit3additionaldetails1" value="true">
+            <input type="hidden" name="sit3comment1_ev" value="" />
+            <textarea name="sit3comment1" cols="30" rows="5" ></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails2" value="true">
+            <input type="hidden" name="sit3comment2_ev" value="" />
+            <textarea name="sit3comment2" cols="30" rows="5" ></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails7" value="true">
+            <input type="hidden" name="sit3comment7_ev" value="" />
+            <textarea name="sit3comment7" cols="30" rows="5" ></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails8" value="true">
+            <input type="hidden" name="sit3comment8_ev" value="" />
+            <textarea name="sit3comment8" cols="30" rows="5" ></textarea>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails9" value="true">
+            <input type="hidden" name="sit3comment9_ev" value="" />
+            <textarea name="sit3comment9" cols="30" rows="5" ></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails10" value="true">
+            <input type="hidden" name="sit3comment10_ev" value="" />
+            <textarea name="sit3comment10" cols="30" rows="5" ></textarea>
+            </li>
+            </li>
+            </ul>
+            </div>
+       <div class="col-sm-3"> 
+            <label> Selected SIT3 Items Below </label>
+            <ul id="sortable6" class="list-group">
+            <label class="list-group-item"> Drop Below </label>
+            <label class="list-group-item" style="display:none;"> Drop Above </label>
+            </ul>
+       </div>
+      <div class="col-sm-3"> 
+       <label> SIT3B Deployment Steps</label><span> </span><input type="checkbox" id="sit3ball" name="sit3ball" value="sit3ball" onchange="selectAllSit3b()"> Select All
+        <ul id="sortable7" class="list-group">
+                    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bshutdownjvms" value="sit3b_shutdownjvms">
+            <input type="hidden" name="sit3bshutdownjvms_ev" value="" />
+            Sit3b ShutDown Auth and Live JVMS
+            </li>
+			 
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bprofilebackup" value="sit3b_profilebackup">
+            <input type="hidden" name="sit3bprofilebackup_ev" value="" />
+            Sit3b WAS DMGR Profile Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsbackup" value="sit3b_wcsbackup">
+            <input type="hidden" name="sit3bwcsbackup_ev" value="" />
+            Sit3b WCS70 Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3brestartjvms" value="sit3b_restartjvms">
+            <input type="hidden" name="sit3brestartjvms_ev" value="" />
+            Sit3b Restart JVMs
+            </li> 
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcs" value="sit3b_wcs">
+            <input type="hidden" name="sit3bwcs_ev" value="" />
+            Sit3b WCS Live Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsauth" value="sit3bauth_wcs">
+            <input type="hidden" name="sit3bwcsauth_ev" value="" />
+            Sit3b WCS Auth Full Deployment
+            </li>
+            
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsdb" value="sit3b_wcs_db">
+            <input type="hidden" name="sit3bwcsdb_ev" value="" />
+            Sit3b WCS Live DB Only Deployment
+            </li>
+            
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsauthdb" value="sit3bauth_wcs_db">
+            <input type="hidden" name="sit3bwcsauthdb_ev" value="" />
+            Sit3b WCS Auth DB Only Deployment
+            </li>
+			<li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsdb1" value="sit3b_wcs_db">
+            <input type="hidden" name="sit3bwcsdb1_ev" value="" />
+            Sit3b WCS Live DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsauthdb1" value="sit3bauth_wcs_db">
+            <input type="hidden" name="sit3bwcsauthdb1_ev" value="" />
+            Sit3b WCS Auth DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsnodb" value="sit3b_wcs_nodb">
+            <input type="hidden" name="sit3bwcsnodb_ev" value="" />
+            Sit3b WCS without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsauthnodb" value="sit3bauth_wcs_nodb">
+            <input type="hidden" name="sit3bwcsauthnodb_ev" value="" />
+            Sit3b WCS Auth without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bdataload" value="sit3b_dataload">
+            <input type="hidden" name="sit3bdataload_ev" value="" />
+            Sit3b Dataload Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bauthdataload" value="sit3bauth_dataload">
+            <input type="hidden" name="sit3bauthdataload_ev" value="" />
+            Sit3b Dataload Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bmsjobs" value="sit3b_msjobs">
+            <input type="hidden" name="sit3bmsjobs_ev" value="" />
+            Sit3b MSJobs Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bauthmsjobs" value="sit3bauth_msjobs">
+            <input type="hidden" name="sit3bauthmsjobs_ev" value="" />
+            Sit3b MSJobs Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bcq" value="sit3b_cq">
+            <input type="hidden" name="sit3bcq_ev" value="" />
+            Sit3b CQ
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcspatch" value="sit3b_wcspatch">
+            <input type="hidden" name="sit3bwcspatch_ev" value="" />
+            Sit3b WCS LIVE Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bupdatewrkspcauth" value="sit3bauth_workspac">
+            <input type="hidden" name="sit3bupdatewrkspcauth_ev" value="" />
+            Sit3b Update Workspace
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwxs" value="sit3b_wxs">
+            <input type="hidden" name="sit3bwxs_ev" value="" />
+            Sit3b WXS Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3brestarth8wxs" value="sit3b_restarth8wxs">
+            <input type="hidden" name="sit3brestarth8wxs_ev" value="" />
+            Sit3b WXS Restart
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bihs" value="sit3b_ihs">
+            <input type="hidden" name="sit3bihs_ev" value="" />
+            Sit3b IHS
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bctrlmswitch" value="sit3b_ctrlmswitch">
+            <input type="hidden" name="sit3bctrlmswitch_ev" value="" />
+            Sit3b Ctrl-M Agents Switch
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bctrlmbau" value="sit3b_ctrlmbau">
+            <input type="hidden" name="sit3bctrlmbau_ev" value="" />
+            Sit3b Ctrl-M BAU Mode
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bctrlm" value="sit3b_ctrlm">
+            <input type="hidden" name="sit3bctrlm_ev" value="" />
+            Sit3b Ctrl-M Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bendeca" value="sit3bauth_endeca">
+            <input type="hidden" name="sit3bendeca_ev" value="" />
+            Sit3b Endeca
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsauthpatch" value="sit3bauth_wcspatch">
+            <input type="hidden" name="sit3bwcsauthpatch_ev" value="" />
+            Sit3b WCS Auth Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bswitchworkbench8" value="sit3b_switchworkbench8">
+            <input type="hidden" name="sit3bswitchworkbench8_ev" value="" />
+            Sit3b Switch Workbench
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bihstoreplica" value="sit3b_ihstoreplica">
+            <input type="hidden" name="sit3bihstoreplica_ev" value="" />
+            Sit3b IHS to Replica
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bakamai100" value="sit3b_akamai0">
+            <input type="hidden" name="sit3bakamai100_ev" value="" />
+            Sit3b Akamai Traffic 100%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bakamai10" value="sit3b_akamai90">
+            <input type="hidden" name="sit3bakamai10_ev" value="" />
+            Sit3b Akamai Traffic 10%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsapar" value="sit3b_wcsapar">
+            <input type="hidden" name="sit3bwcsapar_ev" value="" />
+            Sit3b WCS Live APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bwcsauthapar" value="sit3bauth_wcsauthapar">
+            <input type="hidden" name="sit3bwcsauthapar_ev" value="" />
+            Sit3b WCS Auth APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bexecutebaseline" value="sit3bauth_executebaseline">
+            <input type="hidden" name="sit3bexecutebaseline_ev" value="" />
+            Sit3b Endeca Baseline Execute
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bpropagateindexh8" value="sit3bauth_propagateindexh8">
+            <input type="hidden" name="sit3bpropagateindexh8_ev" value="" />
+            Sit3b Endeca Propagate Index to H8
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3bpropagateindexh5" value="sit3bauth_propagateindexh5">
+            <input type="hidden" name="sit3bpropagateindexh5_ev" value="" />
+            Sit3b Endeca Propagate Index to H5
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="ihsbau" value="sit3_ihsbau">
+            <input type="hidden" name="ihsbau_ev" value="" />
+            IHS BAU
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails3" value="true">
+            <input type="hidden" name="sit3comment3_ev" value="" />
+            <textarea name="sit3comment3" cols="30" rows="5" ></textarea>
+            
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails4" value="true">
+            <input type="hidden" name="sit3comment4_ev" value="" />
+            <textarea name="sit3comment4" cols="30" rows="5" ></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails5" value="true">
+            <input type="hidden" name="sit3comment5_ev" value="" />
+            <textarea name="sit3comment5" cols="30" rows="5" ></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails6" value="true">
+            <input type="hidden" name="sit3comment6_ev" value="" />
+            <textarea name="sit3comment6" cols="30" rows="5" ></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails11" value="true">
+            <input type="hidden" name="sit3comment11_ev" value="" />
+            <textarea name="sit3comment11" cols="30" rows="5" ></textarea>
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="sit3additionaldetails12" value="true">
+            <input type="hidden" name="sit3comment12_ev" value="" />
+            <textarea name="sit3comment12" cols="30" rows="5" ></textarea>
+            </li>
+      </ul>
+      </div>
+       <div class="col-sm-3"> 
+            <label> Selected SIT3B Items Below </label>
+            <ul id="sortable8" class="list-group">
+            <label class="list-group-item"> Drop Below </label>
+            <label class="list-group-item" style="display:none;"> Drop Above </label>
+            </ul>
+       </div>
+     </div>
+        <div id="DRdiv" class="desc" style="display:none;">
+    <div class="col-sm-12"> 
+      <input type="checkbox" id="dr2first" name="dr2first" value="dr2first"> <strong>Perform DR2 Deployment First</strong>
+    </div>
+      <div class="col-sm-3"> 
+       <label> DR Deployment Steps</label><span> </span><input type="checkbox" id="dr1all" name="dr1all" value="dr1all" onchange="selectAllDR1()"> Select All
+        <ul id="sortable9" class="list-group">
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRsharedmountsnapmirror" value="dr_sharedmountsnapmirror">
+            <input type="hidden" name="DRsharedmountsnapmirror_ev" value="" />
+            DR Copy Shared Mount Snap Mirrors from Prod
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRdatagaurdchange" value="dr_datagaurdchange">
+            <input type="hidden" name="DRdatagaurdchange_ev" value="" />
+            DR Break Datagaurd And WXS Dismiss Link
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRenabledatagaurdwxs" value="dr_enabledatagaurdwxs">
+            <input type="hidden" name="DRenabledatagaurdwxs_ev" value="" />
+            DR Enable Datagaurd and WXS Link
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRshutdownjvms" value="dr_shutdownjvms">
+            <input type="hidden" name="DRshutdownjvms_ev" value="" />
+            DR ShutDown Auth and Live JVMS
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRprofilebackup" value="dr_profilebackup">
+            <input type="hidden" name="DRprofilebackup_ev" value="" />
+            DR WAS DMGR Profile Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsbackup" value="dr_wcsbackup">
+            <input type="hidden" name="DRwcsbackup_ev" value="" />
+            DR WCS70 Backup
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRrestartjvms" value="dr_restartjvms">
+            <input type="hidden" name="DRrestartjvms_ev" value="" />
+            DR Restart JVMs
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcs" value="dr_wcs">
+            <input type="hidden" name="DRwcs_ev" value="" />
+            DR WCS Live Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsauth" value="drauth_wcs">
+            <input type="hidden" name="DRwcsauth_ev" value="" />
+            DR WCS Auth Full Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsdb" value="dr_wcs_db">
+            <input type="hidden" name="DRwcsdb_ev" value="" />
+            DR WCS DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsauthdb" value="drauth_wcs_db">
+            <input type="hidden" name="DRwcsauthdb_ev" value="" />
+            DR WCS Auth DB Only Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsnodb" value="dr_wcs_nodb">
+            <input type="hidden" name="DRwcsnodb_ev" value="" />
+            DR WCS without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsauthnodb" value="drauth_wcs_nodb">
+            <input type="hidden" name="DRwcsauthnodb_ev" value="" />
+            DR WCS Auth without DB Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRdataload" value="dr_dataload">
+            <input type="hidden" name="DRdataload_ev" value="" />
+            DR Dataload Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRauthdataload" value="drauth_dataload">
+            <input type="hidden" name="DRauthdataload_ev" value="" />
+            DR Dataload Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRmsjobs" value="dr_msjobs">
+            <input type="hidden" name="DRmsjobs_ev" value="" />
+            DR MSJobs Live Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRauthmsjobs" value="drauth_msjobs">
+            <input type="hidden" name="DRauthmsjobs_ev" value="" />
+            DR MSJobs Auth Nodes
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRcq" value="dr_cq">
+            <input type="hidden" name="DRcq_ev" value="" />
+            DR CQ
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRrestartcms" value="dr_restartcms">
+            <input type="hidden" name="DRrestartcms_ev" value="" />
+            DR Restart CMS services
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcspatch" value="dr_wcspatch">
+            <input type="hidden" name="DRwcspatch_ev" value="" />
+            DR WCS LIVE Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRupdatewrkspcauth" value="drauth_workspac">
+            <input type="hidden" name="DRupdatewrkspcauth_ev" value="" />
+            DR Update Workspace
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRadditionaldetails2" value="true">
+            <input type="hidden" name="DRcomment2_ev" value="" />
+            <textarea name="DRcomment2" cols="30" rows="5"></textarea>
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"DRadditionaldetails6" value="true">
+            <input type="hidden" name="DRcomment6_ev" value="" />
+            <textarea name="DRcomment6" cols="30" rows="5"></textarea>
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"DRadditionaldetails7" value="true">
+            <input type="hidden" name="DRcomment7_ev" value="" />
+            <textarea name="DRcomment7" cols="30" rows="5"></textarea>
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"DRadditionaldetails8" value="true">
+            <input type="hidden" name="DRcomment8_ev" value="" />
+            <textarea name="DRcomment8" cols="30" rows="5"></textarea>
+            </li>
+        </ul>
+        </div>
+       <div class="col-sm-3"> 
+            <label> Selected DR Items Below </label>
+            <ul id="sortable10" class="list-group">
+            <label class="list-group-item"> Drop Below </label>
+            <label class="list-group-item" style="display:none;"> Drop Above </label>
+            </ul>
+       </div>
+      <div class="col-sm-3"> 
+       <label> DR Deployment Steps</label><span> </span><input type="checkbox" id="dr2all" name="dr2all" value="dr2all" onchange="selectAllDR2()"> Select All
+        <ul id="sortable11" class="list-group">
+                    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwxs" value="dr_wxs">
+            <input type="hidden" name="DRwxs_ev" value="" />
+            DR WXS Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRrestarth5wxs" value="dr_restarth5wxs">
+            <input type="hidden" name="DRrestarth5wxs_ev" value="" />
+            DR WXS Restart
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRihs" value="dr_ihs">
+            <input type="hidden" name="DRihs_ev" value="" />
+            DR IHS
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRctrlmswitch" value="dr_ctrlmswitch">
+            <input type="hidden" name="DRctrlmswitch_ev" value="" />
+            DR Ctrl-M Agents Switch
+            </li>     
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRctrlmbau" value="dr_ctrlmbau">
+            <input type="hidden" name="DRctrlmbau_ev" value="" />
+            DR Ctrl-M BAU Mode
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRctrlm" value="dr_ctrlm">
+            <input type="hidden" name="DRctrlm_ev" value="" />
+            DR Ctrl-M Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRendeca" value="drauth_endeca">
+            <input type="hidden" name="DRendeca_ev" value="" />
+            DR Endeca
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsauthpatch" value="drauth_wcspatch">
+            <input type="hidden" name="DRwcsauthpatch_ev" value="" />
+            DR WCS Auth Patch Deployment
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRswitchworkbench5" value="dr_switchworkbench5">
+            <input type="hidden" name="DRswitchworkbench5_ev" value="" />
+            DR Switch Workbench
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRihstoreplica" value="dr_ihstoreplica">
+            <input type="hidden" name="DRihstoreplica_ev" value="" />
+            DR IHS to Replica
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRakamai100" value="dr_akamai100">
+            <input type="hidden" name="DRakamai100_ev" value="" />
+            DR Akamai Traffic 100%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRakamai10" value="dr_akamai10">
+            <input type="hidden" name="DRakamai10_ev" value="" />
+            DR Akamai Traffic 10%
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsapar" value="dr_wcsapar">
+            <input type="hidden" name="DRwcsapar_ev" value="" />
+            DR WCS Live APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRwcsauthapar" value="drauth_wcsauthapar">
+            <input type="hidden" name="DRwcsauthapar_ev" value="" />
+            DR WCS Auth APAR
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRexecutebaseline" value="drauth_executebaseline">
+            <input type="hidden" name="DRexecutebaseline_ev" value="" />
+            DR Endeca Baseline Execute
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name="DRpropagateindextolive" value="drauth_propagateindextolive">
+            <input type="hidden" name="DRpropagateindextolive_ev" value="" />
+            DR Endeca Propagate Index To Live
+            </li>
+            <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"DRadditionaldetails1" value="true">
+            <input type="hidden" name="DRcomment1_ev" value="" />
+            <textarea name="DRcomment1" cols="30" rows="5"></textarea>
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"DRadditionaldetails3" value="true">
+            <input type="hidden" name="DRcomment3_ev" value="" />
+            <textarea name="DRcomment3" cols="30" rows="5"></textarea>
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"DRadditionaldetails4" value="true">
+            <input type="hidden" name="DRcomment4_ev" value="" />
+            <textarea name="DRcomment4" cols="30" rows="5"></textarea>
+            </li>
+	    <li class="list-group-item" id="ui-state-default">
+            <input type="checkbox" name"DRadditionaldetails5" value="true">
+            <input type="hidden" name="DRcomment5_ev" value="" />
+            <textarea name="DRcomment5" cols="30" rows="5"></textarea>
+            </li>
+        </ul>
+      </div>
+       <div class="col-sm-3"> 
+            <label> Selected DR Items Below </label>
+            <ul id="sortable12" class="list-group">
+            <label class="list-group-item"> Drop Below </label>
+            <label class="list-group-item" style="display:none;"> Drop Above </label>
+            </ul>
+       </div>
+        </div>
+      <div class="row">
+      <div class="col-sm-12"> 
+        <INPUT TYPE="button"  VALUE="Submit" onclick="submitForm()" class="btn btn-primary">
+        </INPUT>
+        </div>
+      </INPUT>
+      </div>
+    </FORM>
+  </BODY>
+</HTML>

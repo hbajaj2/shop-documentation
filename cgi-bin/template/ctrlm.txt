@@ -1,0 +1,33 @@
+&ctrlm_ev& Control-M Deployment - &ENV&
+
+UNIX User - ctmuser
+
+*** Note: Make sure that any control M changes are not done with new day of control M jobs reordering sandwiched to an hour window. ***
+
+Code packet location,Extract the code packet and Execute permission to the script
+
+	$/export/ecom/deploy/PLATFORM/controlM-&BRANCH&/controlM-&BRANCH&.tar.gz
+	$cd /export/ecom/deploy/PLATFORM/controlM-&BRANCH&/
+	$tar -zxf controlM-&BRANCH&.tar.gz 
+	$chmod u+x ./deployCONTROLM.sh
+
+Please follow below steps to run ControlM deployment.
+
+	$./deployCONTROLM.sh &BRANCH& &ENV& DELETE 2>&1 | tee /mslogs/deploy-logs/controlM-&BRANCH&/controlM_delete_`date +%Y%m%d%H%M%S`.log
+
+
+*** NOTE: If the jobs are taking lot of time to be deleted, find out order id of running jobs from control m EM and use below command to forcefully kill them (run below command for each running job): ***
+
+	$ ${CONTROLM_SERVER}/../bmcperl/perl ${CONTROLM_SERVER}/scripts/force_end_job.pl <Job_Order_ID> Y
+
+
+Validate if there are no running jobs left behind.
+	SQL> select count(1) from xjobruns where status=0; 
+
+If any jobs are found to be running update the status with below command.
+	SQL> update xjobruns set status=2 where status=0; 
+	SQL> commit;
+
+Deployment of control M stack.
+	$./deployCONTROLM.sh &BRANCH& &ENV& 2>&1 | tee /mslogs/deploy-logs/controlM-&BRANCH&/controlM_deploy_`date +%Y%m%d%H%M%S`.log
+

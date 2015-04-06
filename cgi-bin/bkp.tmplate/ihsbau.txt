@@ -1,0 +1,12 @@
+&ihs_ev& Switch IHS to BAU
+	NOTE: This needs to be done only on one author and one live webserver.
+
+	UNIX User: root
+
+	cd /apps/IBM/ihs70/conf
+
+	Author Webserver:
+	./SiteBAU-Auth.sh	
+
+	Live Webserver:
+	./SiteBAU.sh

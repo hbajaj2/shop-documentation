@@ -1,0 +1,4 @@
+&wcs_ev& Enable DataGuard Between Woking and AMS - &ENV&
+
+
+AT&T needs to wait for the confirmation from Sapient Team to enable the Dataguard once H5/H8 is marked fit for the usage

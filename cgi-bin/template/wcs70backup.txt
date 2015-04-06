@@ -1,0 +1,13 @@
+&wcs_ev& WCS70 Backup in Author and Live (Before Applying WCS Fixpack) &ENV&
+
+UNIX User - root
+
+	For Author DMgr:
+	datetime=`date +%Y%m%d%H%M%S` && mkdir -p /nas-cq-auth/backup/wcs70_&ENV&_before_FP9_${datetime} && rsync -rltpD
+	/apps/IBM/Websphere/wcs70/ /nas-cq-auth/backup/wcs70_&ENV&_before_FP9_${datetime}
+	
+	For Live DMgr:
+
+	datetime=`date +%Y%m%d%H%M%S` && mkdir -p /nas-cq-pub/backup/wcs70_&ENV&_before_FP9_${datetime} && rsync -rltpD
+        /apps/IBM/Websphere/wcs70/ /nas-cq-pub/backup/wcs70_&ENV&_before_FP9_${datetime}
+

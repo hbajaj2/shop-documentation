@@ -1,0 +1,10 @@
+&wcs_ev& Logical Rollback WCS Auth DB - &ENV&
+Extract the author DBCR rollback zip file from BAS Location on Author DMGR server with wasadmin user.
+        $unzip  /tmp/author.zip -d /tmp/author/
+	$cd /tmp/author/
+
+Connect to Author database and execute the below script.
+	
+	sql> spool auth_rollback.log
+	sql> @auth_rollback.sql
+	Share the spool file for validaiton.

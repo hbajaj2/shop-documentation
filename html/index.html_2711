@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("input[name$='ENV']").click(function() {
+                var inputid = $(this).attr('id');
+                $("input:checkbox").attr('checked', false);
+                $("div.desc").hide();
+                $("#"+inputid + "div").show();
+    });
+});
+</script>
+</HEAD>
+<BODY>
+<FORM ACTION="/cgi-bin/docmailer.cgi" METHOD="POST" enctype="application/x-www-form-urlencoded">
+Branch Details <BR>
+<SELECT NAME="Branch">
+<OPTION SELECTED>Production_Support</OPTION>
+<OPTION>Trunk</OPTION>
+<OPTION>Release_Testing_Support</OPTION>
+<OPTION>Release_Development</OPTION>
+</SELECT>
+<P>
+WCS_Release_Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="wcs_RL" SIZE="4">
+<P>
+<P>
+CQ5_Release_Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="cq5_RL" SIZE="4">
+<P>
+<P>
+Endeca_Release_Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="endeca_RL" SIZE="4">
+<P>
+<P>
+Dataload Release Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="dataload_RL" SIZE="4">
+<P>
+<P>
+MSJobs Release Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="msjobs_RL" SIZE="4">
+<P>
+<P>
+IHS Release Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="ihs_RL" SIZE="4">
+<P>
+<P>
+WXS Release Label (numeric part only)<BR>
+<INPUT TYPE="TEXT" NAME="wxs_RL" SIZE="4">
+<P>
+Enter Sapient Email ID<BR>
+<INPUT TYPE="TEXT" NAME="email_id" SIZE="50">
+<P>
+Select Environment
+<INPUT TYPE="RADIO" NAME="ENV" id="prod" VALUE="Prod/Burst"> Prod/Burst
+<INPUT TYPE="RADIO" NAME="ENV" id="sit3" VALUE="SIT3/SIT3B"> SIT3/SIT3B
+<INPUT TYPE="RADIO" NAME="ENV" id="sit1" VALUE="SIT1"> SIT1
+<INPUT TYPE="RADIO" NAME="ENV" id="sit2" VALUE="SIT2"> SIT2
+<INPUT TYPE="RADIO" NAME="ENV" id="dr" VALUE="DR"> DR
+<P>
+<div id="proddiv" class="desc" style="display:none;">
+        <input type="checkbox" name="prodwcs" value="h5prod_wcs">
+        <select name="prodwcs_ev">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        Prod WCS<br>
+        <input type="checkbox" name="prodcq5" value="h5prod_cq5">
+        <select name="prodcq5_ev">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        Prod CQ5<br>
+        <input type="checkbox" name="prodendeca" value="h5prod_endeca">
+        <select name="prodendeca_ev">
+        <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        Prod Endeca<br>
+        <input type="checkbox" name="burstwcs" value="h8prod_wcs">
+        <select name="burstwcs_ev">
+        <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        Burst WCS<br>
+        <input type="checkbox" name="burstendeca" value="h8prod_endeca">
+        <select name="burstendeca_ev">
+        <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        Burst Endeca
+
+</div>
+<div id="sit3div" class="desc" style="display:none;">
+        <input type="checkbox" name="action1" value="sit3wcs">
+        <select name="listvalue1">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        SIT3 WCS<br>
+        <input type="checkbox" name="action2" value="cq5">
+        <select name="listvalue2">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+        </select>
+        SIT3 CQ5<br>
+        <input type="checkbox" name="action3" value="sit3endeca">
+        <select name="listvalue3">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+        </select>
+        SIT3 Endeca
+</div>
+<INPUT TYPE="SUBMIT" NAME="submit" VALUE="Submit">
+</FORM>
+</BODY>
+</HTML>

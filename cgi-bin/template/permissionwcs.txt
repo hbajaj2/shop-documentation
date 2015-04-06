@@ -1,0 +1,9 @@
+&wcs_ev& Permission change for WCS70 & WS70  &ENV&
+
+UNIX User - root
+
+	Change the ownership of WS directory to wasadmin user
+
+	$chown -R 777 wasdmin.wasgroup /apps/IBM/Websphere/wcs70
+	$chown -R 777 wasdmin.wasgroup /apps/IBM/Websphere/ws70
+

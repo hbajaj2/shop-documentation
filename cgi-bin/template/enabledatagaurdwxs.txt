@@ -1,0 +1,11 @@
+&wcs_ev& Enable Datagaurd and WXS Link - &ENV& 
+
+After DR validation step, Re-enable the sync between Woking to AMS database from Datagaurd and confirm. It would make the data to be in sync from Woking to DR environment.
+
+Login to WXS server p120338vaps2311 with user wxsuser and go to WXS bin directory and execute the below command
+	$cd /apps/IBM/wxs_catalog/Objectgrid/bin
+	$./xsadmin.sh -ch P120338vaps2311 -p 1105 -establishLink H5_PROD_INVCAT S221533VAPS2311:2809,S221533VAPS2312:2809,S221533VAPS2313:2809
+
+Validate the inventory in DR with below command on 2311
+	$cd /apps/IBM/wxs/Objectgrid/bin
+	$./xsadmin.sh -mapsizes -p 1105

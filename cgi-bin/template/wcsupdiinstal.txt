@@ -1,0 +1,27 @@
+&wcs_ev& Update Installer for IBM Websphere Commerce Server Installation
+
+UNIX User - root
+
+Install Instructions:
+
+Copy the response file from BAS Location "updi",as mentioned in point 1,to server.
+
+Note: Make sure that Binaries are copied & extracted to server and the mentioned path does exist. 
+Go to the directory of the update installer binaries media and issue the following command.
+
+	$./install -silent -options <<ResponseFileDirectory>>/wcs-updi9-install-response.txt 
+
+Installation Verification:
+
+	Check the logs at  <WAS Update Installer Install Directory>/logs/install/log.txt for the keyword : INSTCONFSUCCESS
+	Process, com.ibm.ws.install.ni.ismp.actions.SettleNIFRegistryAction, msg1, Current install/uninstall process is successful. Process type is: install
+	Process, com.ibm.ws.install.ni.ismp.actions.SetExitCodeAction, msg1, CWUPI0000I: EXITCODE=0
+	Process, com.ibm.ws.install.ni.ismp.actions.ISMPLogSuccessMessageAction, msg1, INSTCONFSUCCESS
+
+Check the version of Update Installer using following script.
+	$<WCS Update Installer Install Directory>/bin/versionInfo.sh
+
+Output should be as follows:
+	Name                     IBM Update Installer for WebSphere software
+	Version                  <UpdiVersion>
+	ID                       WC.UPDI
